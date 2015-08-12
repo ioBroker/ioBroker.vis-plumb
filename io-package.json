@@ -1,7 +1,7 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "title":                    "ioBroker Visualisation - plumb style Widgets",
         "desc": {
             "en":                   "plumb Widgets for ioBroker.vis",
@@ -28,7 +28,6 @@
 		"restartAdapters":          ["vis"]
     },
     "native": {
-        "dependencies":          ["jqui-mfd", "basic"]
     },
     "instanceObjects": [
     ]
