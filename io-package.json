@@ -1,7 +1,7 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.1.4",
+        "version": "0.1.5",
         "title":                    "ioBroker Visualisation - plumb style Widgets",
         "desc": {
             "en":                   "plumb Widgets for ioBroker.vis",
