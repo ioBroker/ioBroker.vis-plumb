@@ -5,6 +5,8 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
+### 0.1.6 (2015-10-28)
+- (smiling_Jack) deactivate collisions (it´s very buggy)
 
 ### 0.1.5 (2015-08-12)
 - (bluefox) protect against double event: click and touchstart
