@@ -5,6 +5,9 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
+### 0.1.7 (2015-11-28)
+- (smiling_Jack) Bugfixes
+
 ### 0.1.6 (2015-10-28)
 - (smiling_Jack) deactivate collisions (it´s very buggy)
 
