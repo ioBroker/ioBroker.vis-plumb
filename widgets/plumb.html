@@ -1,3 +1,11 @@
+<!--
+    ioBroker.vis plumb widgets
+
+    version: "0.1.8"
+
+    Copyright 2015-2016 smiling_Jack <smiling_Jack@ioBroker.net>
+
+-->
 <link rel="stylesheet" type="text/css" href="widgets/plumb/css/plumb.css"/>
 
 <script type="text/javascript" >
@@ -5,78 +13,78 @@
 
     if (vis.editMode) {
         $.extend(true, systemDictionary, {
-            "color_off": {"en": "color_off", "de": "Farbe aus", "ru": "color_off"},
-            "color_on": {"en": "color_on", "de": "Farbe an", "ru": "color_on"},
-            "group_conTop": {"en": "group_conTop", "de": "Verbindung oben", "ru": "group_conTop"},
-            "conTop_show": {"en": "conTop_show", "de": "Anzeigen", "ru": "conTop_show"},
-            "conTop_size": {"en": "conTop_size", "de": "Größe", "ru": "conTop_size"},
-            "conTop_pos": {"en": "conTop_pos", "de": "Position", "ru": "conTop_pos"},
-            "conTop": {"en": "conTop", "de": "Verbindung oben", "ru": "conTop"},
-            "group_conBottom": {"en": "group_conBottom", "de": "Verbindung unten", "ru": "group_conBottom"},
-            "conBottom_show": {"en": "conBottom_show", "de": "Anzeigen", "ru": "conBottom_show"},
-            "conBottom_size": {"en": "conBottom_size", "de": "Größe", "ru": "conBottom_size"},
-            "conBottom_pos": {"en": "conBottom_pos", "de": "Position", "ru": "conBottom_pos"},
-            "conBottom": {"en": "conBottom", "de": "Verbindung unten", "ru": "conBottom"},
-            "group_conLeft": {"en": "group_conLeft", "de": "Verbindung links", "ru": "group_conLeft"},
-            "conLeft_show": {"en": "conLeft_show", "de": "Anzeigen", "ru": "conLeft_show"},
-            "conLeft_size": {"en": "conLeft_size", "de": "Größe", "ru": "conLeft_size"},
-            "conLeft_pos": {"en": "conLeft_pos", "de": "Position", "ru": "conLeft_pos"},
-            "conLeft": {"en": "conLeft", "de": "Verbindung links", "ru": "conLeft"},
-            "group_conRight": {"en": "group_conRight", "de": "Verbindung rechts", "ru": "group_conRight"},
-            "conRight_show": {"en": "conRight_show", "de": "Anzeigen", "ru": "conRight_show"},
-            "conRight_size": {"en": "conRight_size", "de": "Größe", "ru": "conRight_size"},
-            "conRight_pos": {"en": "conRight_pos", "de": "Position", "ru": "conRight_pos"},
-            "conRight": {"en": "conRight", "de": "Verbindung rechts", "ru": "conRight"},
-            "type": {"en": "type", "de": "Art", "ru": "type"},
-            "fix": {"en": "fix", "de": "Fix", "ru": "fix"},
-            "bool_on": {"en": "bool_on", "de": "An", "ru": "bool_on"},
-            "bool_off": {"en": "bool_off", "de": "Aus", "ru": "bool_off"},
-            "level_min": {"en": "level_min", "de": "Wert min", "ru": "level_min"},
-            "level_max": {"en": "level_max", "de": "Wert max", "ru": "level_max"},
-            "water_color": {"en": "water_color", "de": "Wasserfabe", "ru": "water_color"},
-            "is_filter": {"en": "is_filter", "de": "ist Filter", "ru": "is_filter"},
-            "top_water": {"en": "top_water", "de": "Wasser oben", "ru": "top_water"},
-            "bottom_water": {"en": "bottom_water", "de": "Wasser unten", "ru": "bottom_water"},
-            "filter_pattern": {"en": "filter_pattern", "de": "Filter Bild", "ru": "filter_pattern"},
-            "filter_size": {"en": "filter_size", "de": "Filter gröse ", "ru": "filter_size"},
-            "filter_opa": {"en": "filter_opa", "de": "Filter trans.", "ru": "filter_opa"},
-            "conTop_water": {"en": "conTop_water", "de": "Wasserfarbe", "ru": "conTop_water"},
-            "conBottom_water": {"en": "conBottom_water", "de": "Wasserfarbe", "ru": "conBottom_water"},
-            "conLeft_water": {"en": "conLeft_water", "de": "Wasserfarbe", "ru": "conLeft_water"},
-            "conRight_water": {"en": "conRight_water", "de": "Wasserfarbe", "ru": "conRight_water"},
-            "ctrl": {"en": "ctrl", "de": "ctrl", "ru": "ctrl"},
-            "show_pipe": {"en": "show_pipe", "de": "Zeige Rohr", "ru": "show_pipe"},
-            "show_symbol": {"en": "show_symbol", "de": "Zeige Symbol", "ru": "show_symbol"},
-            "turn_direction": {"en": "turn_direction", "de": "Richtung", "ru": "turn_direction"},
-            "position": {"en": "position", "de": "Position", "ru": "position"},
-            "time": {"en": "time", "de": "Geschwindigkeit", "ru": "time"},
-            "start": {"en": "start", "de": "Anfang", "ru": "start"},
-            "ende": {"en": "ende", "de": "Ende", "ru": "ende"},
-            "stroke": {"en": "stroke", "de": "Strahlbreite", "ru": "stroke"},
-            "head_color": {"en": "head_color", "de": "Kopffarbe", "ru": "head_color"},
-            "fog": {"en": "fog", "de": "Sprühnebel", "ru": "fog"},
-            "head_show": {"en": "head_show", "de": "Kopf anzeigen", "ru": "head_show"},
-            "head_round": {"en": "head_round", "de": "Kopf rund", "ru": "head_round"},
-            "pipe_size": {"en": "Pipe size", "de": "Rohr größe", "ru": "pipe_size"},
-            "spray_width": {"en": "spray_width", "de": "Sprühweite", "ru": "spray_width"},
-            "spray_range": {"en": "spray_range", "de": "Sprühbereich", "ru": "spray_range"},
-            "test": {"en": "test", "de": "Test", "ru": "test"},
-            "head_size": {"en": "head_size", "de": "Kopfgröse", "ru": "head_size"},
-            "opacity": {"en": "opacity", "de": "Transparenz", "ru": "opacity"},
+            "color_off": 		{"en": "color_off", "de": "Farbe aus", "ru": "color_off"},
+            "color_on": 		{"en": "color_on", "de": "Farbe an", "ru": "color_on"},
+            "group_conTop": 	{"en": "group_conTop", "de": "Verbindung oben", "ru": "group_conTop"},
+            "conTop_show": 		{"en": "conTop_show", "de": "Anzeigen", "ru": "conTop_show"},
+            "conTop_size": 		{"en": "conTop_size", "de": "Größe", "ru": "conTop_size"},
+            "conTop_pos": 		{"en": "conTop_pos", "de": "Position", "ru": "conTop_pos"},
+            "conTop": 			{"en": "conTop", "de": "Verbindung oben", "ru": "conTop"},
+            "group_conBottom": 	{"en": "group_conBottom", "de": "Verbindung unten", "ru": "group_conBottom"},
+            "conBottom_show": 	{"en": "conBottom_show", "de": "Anzeigen", "ru": "conBottom_show"},
+            "conBottom_size": 	{"en": "conBottom_size", "de": "Größe", "ru": "conBottom_size"},
+            "conBottom_pos": 	{"en": "conBottom_pos", "de": "Position", "ru": "conBottom_pos"},
+            "conBottom": 		{"en": "conBottom", "de": "Verbindung unten", "ru": "conBottom"},
+            "group_conLeft": 	{"en": "group_conLeft", "de": "Verbindung links", "ru": "group_conLeft"},
+            "conLeft_show": 	{"en": "conLeft_show", "de": "Anzeigen", "ru": "conLeft_show"},
+            "conLeft_size": 	{"en": "conLeft_size", "de": "Größe", "ru": "conLeft_size"},
+            "conLeft_pos": 		{"en": "conLeft_pos", "de": "Position", "ru": "conLeft_pos"},
+            "conLeft": 			{"en": "conLeft", "de": "Verbindung links", "ru": "conLeft"},
+            "group_conRight": 	{"en": "group_conRight", "de": "Verbindung rechts", "ru": "group_conRight"},
+            "conRight_show": 	{"en": "conRight_show", "de": "Anzeigen", "ru": "conRight_show"},
+            "conRight_size": 	{"en": "conRight_size", "de": "Größe", "ru": "conRight_size"},
+            "conRight_pos": 	{"en": "conRight_pos", "de": "Position", "ru": "conRight_pos"},
+            "conRight": 		{"en": "conRight", "de": "Verbindung rechts", "ru": "conRight"},
+            "type": 			{"en": "type", 					"de": "Art", "ru": "type"},
+            "fix": 				{"en": "fix", 					"de": "Fix", "ru": "fix"},
+            "bool_on": 			{"en": "bool_on", 				"de": "An", "ru": "bool_on"},
+            "bool_off": 		{"en": "bool_off", 				"de": "Aus", "ru": "bool_off"},
+            "level_min": 		{"en": "level_min", 			"de": "Wert min", "ru": "level_min"},
+            "level_max": 		{"en": "level_max", 			"de": "Wert max", "ru": "level_max"},
+            "water_color": 		{"en": "water_color", 			"de": "Wasserfabe", "ru": "water_color"},
+            "is_filter": 		{"en": "is_filter", 			"de": "ist Filter", "ru": "is_filter"},
+            "top_water": 		{"en": "top_water", 			"de": "Wasser oben", "ru": "top_water"},
+            "bottom_water": 	{"en": "bottom_water", 			"de": "Wasser unten", "ru": "bottom_water"},
+            "filter_pattern": 	{"en": "filter_pattern", 		"de": "Filter Bild", "ru": "filter_pattern"},
+            "filter_size": 		{"en": "filter_size", 			"de": "Filter gröse ", "ru": "filter_size"},
+            "filter_opa": 		{"en": "filter_opa", 			"de": "Filter trans.", "ru": "filter_opa"},
+            "conTop_water": 	{"en": "conTop_water", 			"de": "Wasserfarbe", "ru": "conTop_water"},
+            "conBottom_water": 	{"en": "conBottom_water", 		"de": "Wasserfarbe", "ru": "conBottom_water"},
+            "conLeft_water": 	{"en": "conLeft_water", 		"de": "Wasserfarbe", "ru": "conLeft_water"},
+            "conRight_water": 	{"en": "conRight_water", 		"de": "Wasserfarbe", "ru": "conRight_water"},
+            "ctrl": 			{"en": "ctrl", 					"de": "ctrl", "ru": "ctrl"},
+            "show_pipe": 		{"en": "show_pipe", 			"de": "Zeige Rohr", "ru": "show_pipe"},
+            "show_symbol": 		{"en": "show_symbol", 			"de": "Zeige Symbol", "ru": "show_symbol"},
+            "turn_direction": 	{"en": "turn_direction", 		"de": "Richtung", "ru": "turn_direction"},
+            "position": 		{"en": "position", 				"de": "Position", "ru": "position"},
+            "time": 			{"en": "time", 					"de": "Geschwindigkeit", "ru": "time"},
+            "start": 			{"en": "start", 				"de": "Anfang", "ru": "start"},
+            "ende": 			{"en": "ende", 					"de": "Ende", "ru": "ende"},
+            "stroke": 			{"en": "stroke", 				"de": "Strahlbreite", "ru": "stroke"},
+            "head_color": 		{"en": "head_color", 			"de": "Kopffarbe", "ru": "head_color"},
+            "fog": 				{"en": "fog", 					"de": "Sprühnebel", "ru": "fog"},
+            "head_show": 		{"en": "head_show", 			"de": "Kopf anzeigen", "ru": "head_show"},
+            "head_round": 		{"en": "head_round", 			"de": "Kopf rund", "ru": "head_round"},
+            "pipe_size": 		{"en": "Pipe size", 			"de": "Rohr größe", "ru": "pipe_size"},
+            "spray_width": 		{"en": "spray_width", 			"de": "Sprühweite", "ru": "spray_width"},
+            "spray_range": 		{"en": "spray_range", 			"de": "Sprühbereich", "ru": "spray_range"},
+            "test": 			{"en": "test", 					"de": "Test", "ru": "test"},
+            "head_size": 		{"en": "head_size", 			"de": "Kopfgröse", "ru": "head_size"},
+            "opacity": 			{"en": "opacity", 				"de": "Transparenz", "ru": "opacity"},
 
-            "group_filter": {"en": "group_filter", "de": "Filter", "ru": "group_filter"},
-            "conTop_level": {"en": "conTop_level", "de": "Füllstand", "ru": "conTop_level"},
-            "conTop_color_off": {"en": "conTop_color_off", "de": "Farbe aus", "ru": "conTop_color_off"},
-            "conTop_color_on": {"en": "conTop_color_on", "de": "Farbe an", "ru": "conTop_color_on"},
-            "conBottom_level": {"en": "conBottom_level", "de": "Füllstand", "ru": "conBottom_level"},
+            "group_filter": 	{"en": "group_filter", 			"de": "Filter", "ru": "group_filter"},
+            "conTop_level": 	{"en": "conTop_level", 			"de": "Füllstand", "ru": "conTop_level"},
+            "conTop_color_off": {"en": "conTop_color_off", 		"de": "Farbe aus", "ru": "conTop_color_off"},
+            "conTop_color_on": 	{"en": "conTop_color_on", 		"de": "Farbe an", "ru": "conTop_color_on"},
+            "conBottom_level": 	{"en": "conBottom_level", 		"de": "Füllstand", "ru": "conBottom_level"},
             "conBottom_color_off": {"en": "conBottom_color_off", "de": "Farbe aus", "ru": "conBottom_color_off"},
-            "conBottom_color_on": {"en": "conBottom_color_on", "de": "Farbe an", "ru": "conBottom_color_on"},
-            "conLeft_level": {"en": "conLeft_level", "de": "Füllstand", "ru": "conLeft_level"},
-            "conLeft_color_off": {"en": "conLeft_color_off", "de": "Farbe aus", "ru": "conLeft_color_off"},
-            "conLeft_color_on": {"en": "conLeft_color_on", "de": "Farbe an", "ru": "conLeft_color_on"},
-            "conRight_level": {"en": "conRight_level", "de": "Füllstand", "ru": "conRight_level"},
-            "conRight_color_off": {"en": "conRight_color_off", "de": "Farbe aus", "ru": "conRight_color_off"},
-            "conRight_color_on": {"en": "conRight_color_on", "de": "Farbe an", "ru": "conRight_color_on"},
+            "conBottom_color_on": {"en": "conBottom_color_on", 	"de": "Farbe an", "ru": "conBottom_color_on"},
+            "conLeft_level": 	{"en": "conLeft_level", 		"de": "Füllstand", "ru": "conLeft_level"},
+            "conLeft_color_off": {"en": "conLeft_color_off", 	"de": "Farbe aus", "ru": "conLeft_color_off"},
+            "conLeft_color_on": {"en": "conLeft_color_on", 		"de": "Farbe an", "ru": "conLeft_color_on"},
+            "conRight_level": 	{"en": "conRight_level", 		"de": "Füllstand", "ru": "conRight_level"},
+            "conRight_color_off": {"en": "conRight_color_off", 	"de": "Farbe aus", "ru": "conRight_color_off"},
+            "conRight_color_on": {"en": "conRight_color_on", 	"de": "Farbe an", "ru": "conRight_color_on"},
         });
 
         $(document).keydown(function (e) {
@@ -95,6 +103,13 @@
     }
 
     vis.binds.plumb = {
+		version: "0.1.8",
+		showVersion: function () {
+            if (vis.binds.plumb.version) {
+                console.log('Version vis-plumb: ' + vis.binds.plumb.version);
+                vis.binds.plumb.version = null;
+            }
+        },
         dragging: false,
         data: {},
         plumb_drop: function ($this, no_pos) {
@@ -2600,9 +2615,10 @@
 
 
         },
-
-    }
+    };
 </script>
+
+	vis.binds.plumb.showVersion();
 
 <script id="tplPlump_pump"
         type="text/ejs"
@@ -2612,7 +2628,7 @@
         data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Pump"
-        data-vis-attrs="oid;src[./widgets/plumb/img/pumpe.png];color_off[#C0C0C0]/color;color_on[#00ff00]/color;group.conTop;conTop_show/checkbox;conTop_size[20]/slider,10,50,5;conTop_pos[50]/slider,0,100,1;conTop;group.conBottom;conBottom_show/checkbox;conBottom_size[20]/slider,10,50,5;conBottom_pos[50]/slider,0,100,1;conBottom;group.conLeft;conLeft_show/checkbox;conLeft_size[20]/slider,10,50,5;conLeft_pos[50]/slider,0,100,1;conLeft;group.conRight;conRight_show/checkbox;conRight_size[20]/slider,10,50,5;conRight_pos[50]/slider,0,100,1;conRight">
+        data-vis-attrs="oid;src[./widgets/plumb/img/pumpe.png]/image;color_off[#C0C0C0]/color;color_on[#00ff00]/color;group.conTop;conTop_show/checkbox;conTop_size[20]/slider,10,50,5;conTop_pos[50]/slider,0,100,1;conTop;group.conBottom;conBottom_show/checkbox;conBottom_size[20]/slider,10,50,5;conBottom_pos[50]/slider,0,100,1;conBottom;group.conLeft;conLeft_show/checkbox;conLeft_size[20]/slider,10,50,5;conLeft_pos[50]/slider,0,100,1;conLeft;group.conRight;conRight_show/checkbox;conRight_size[20]/slider,10,50,5;conRight_pos[50]/slider,0,100,1;conRight">
     <div class="vis-widget <%== this.data.attr('class') %> pl pl_b pl_t pl_l pl_r" data-vis-resizable='{}' style=" width: 65px; height: 205px;" id="<%= this.data.attr('wid') %>">
         <div class="vis-widget-body" <%= (el) -> vis.binds.plumb.pump(el, data) %>>
 	<div class="pump" >

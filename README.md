@@ -5,6 +5,9 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
+### 0.1.8 (2018-07-13)
+- (bluefox) add image selector by pump
+
 ### 0.1.7 (2015-11-28)
 - (smiling_Jack) Bugfixes
 

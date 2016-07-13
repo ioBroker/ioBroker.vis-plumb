@@ -1,7 +1,14 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.1.7",
+        "version": "0.1.8",
+		"news": {
+            "0.1.8": {
+                "en": "add image selector by pump",
+                "de": "add image selector by pump",
+                "ru": "add image selector by pump"
+            }
+        },
         "title":                    "ioBroker Visualisation - plumb style Widgets",
         "desc": {
             "en":                   "plumb Widgets for ioBroker.vis",
@@ -24,6 +31,7 @@
         "dependencies":             ["vis"],
         "onlyWWW":                  true,
         "singleton":                true,
+		"noConfig":                 true,
         "type":                     "vis",
 		"restartAdapters":          ["vis"]
     },
