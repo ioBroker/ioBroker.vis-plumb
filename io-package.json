@@ -1,8 +1,13 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.1.8",
+        "version": "0.1.9",
 		"news": {
+			"0.1.9": {
+                "en": "detect cyclic updates",
+                "de": "detectiere zyklische updates",
+                "ru": "обнаружение циклических конструкций"
+            }
             "0.1.8": {
                 "en": "add image selector by pump",
                 "de": "add image selector by pump",

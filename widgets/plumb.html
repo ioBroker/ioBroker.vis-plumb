@@ -1,7 +1,7 @@
 <!--
     ioBroker.vis plumb widgets
 
-    version: "0.1.8"
+    version: "0.1.9"
 
     Copyright 2015-2016 smiling_Jack <smiling_Jack@ioBroker.net>
 
@@ -92,18 +92,16 @@
                 $("#visview_" + vis.activeView).find(".plumb_dock_bottom, .plumb_dock_left, .plumb_dock_right, .plumb_dock_top").droppable("option", "disabled", true).removeClass("drop-hover");
                 e.preventDefault();
             }
-            if (e.keyCode == 76) {
-                if ($("#" + vis.activeWidgets[0]).hasClass("plumb_pipe")) {
+            if (e.keyCode === 76) {
+                if ($('#' + vis.activeWidgets[0]).hasClass("plumb_pipe")) {
                     vis.binds.plumb.check_lengh(vis.activeWidgets[0])
                 }
             }
-
-
         });
     }
 
     vis.binds.plumb = {
-		version: "0.1.8",
+		version: "0.1.9",
 		showVersion: function () {
             if (vis.binds.plumb.version) {
                 console.log('Version vis-plumb: ' + vis.binds.plumb.version);
@@ -115,21 +113,20 @@
         plumb_drop: function ($this, no_pos) {
             var drag_id;
             var self_id;
-            var drop_cancel;
             var left;
             var top;
             if (vis.editMode) {
 
                 $($this).find(".plumb_dock_top").droppable({
-                    accept: ".pl_b:not(#" + $($this).attr("id") + ")",
+                    accept: ".pl_b:not(#" + $($this).attr('id') + ")",
                     hoverClass: "drop-hover",
                     tolerance: "touch",
                     drop: function (event, ui) {
 
-                        drag_id = $(ui.draggable).attr("id");
-                        self_id = $this.attr("id");
-                        top = Math.round(parseInt($this.css("top")) - ui.draggable.height()) + "px";
-                        left = Math.round(parseInt($this.css("left")) + $(this).position().left - $(ui.draggable).find(".plumb_dock_bottom").position().left + (($(this).width() - $(ui.draggable).find(".plumb_dock_bottom").width()) / 2 )) + "px"
+                        drag_id = $(ui.draggable).attr('id');
+                        self_id = $this.attr('id');
+                        top = Math.round(parseInt($this.css('top')) - ui.draggable.height()) + 'px';
+                        left = Math.round(parseInt($this.css('left')) + $(this).position().left - $(ui.draggable).find('.plumb_dock_bottom').position().left + (($(this).width() - $(ui.draggable).find('.plumb_dock_bottom').width()) / 2 )) + 'px';
 
 
                         vis.views[vis.activeView].widgets[self_id].data.conTop = drag_id;
@@ -137,30 +134,31 @@
                         vis.views[vis.activeView].widgets[drag_id].style.top = top;
                         vis.views[vis.activeView].widgets[drag_id].style.left = left;
 
-                        $("#inspect_conBottom").val(self_id);
+                        $('#inspect_conBottom').val(self_id);
 
                         $(ui.draggable).css({
-                            "top": top,
-                            "left": left
+                            top: top,
+                            left: left
                         });
 
-                        $(".widget-helper").css({
-                            "top": parseInt(top) - 1  + "px",
-                            "left": parseInt(left) - 1 + "px"
+                        $('.widget-helper').css({
+                            top: parseInt(top) - 1  + 'px',
+                            left: parseInt(left) - 1 + 'px'
                         });
                         vis.save();
 
                     }
                 });
-                $($this).find(".plumb_dock_bottom").droppable({
-                    accept: ".pl_t:not(#" + $($this).attr("id") + ")",
+
+                $($this).find('.plumb_dock_bottom').droppable({
+                    accept: ".pl_t:not(#" + $($this).attr('id') + ")",
                     hoverClass: "drop-hover",
                     tolerance: "touch",
                     drop: function (event, ui) {
-                        drag_id = $(ui.draggable).attr("id");
-                        self_id = $this.attr("id");
-                        left = Math.round(parseInt($this.css("left")) + $(this).position().left - $(ui.draggable).find(".plumb_dock_top").position().left + (($(this).width() - $(ui.draggable).find(".plumb_dock_top").width()) / 2 )) + "px";
-                        top = Math.round(parseInt($this.css("top")) + $this.height()) + "px";
+                        drag_id = $(ui.draggable).attr('id');
+                        self_id = $this.attr('id');
+                        left = Math.round(parseInt($this.css("left")) + $(this).position().left - $(ui.draggable).find(".plumb_dock_top").position().left + (($(this).width() - $(ui.draggable).find(".plumb_dock_top").width()) / 2 )) + 'px';
+                        top = Math.round(parseInt($this.css("top")) + $this.height()) + 'px';
 
                         vis.views[vis.activeView].widgets[self_id].data.conBottom = drag_id;
                         vis.views[vis.activeView].widgets[drag_id].data.conTop = self_id;
@@ -174,23 +172,23 @@
                             "left": left
                         });
 
-                        $(".widget-helper").css({
-                            "top": parseInt(top) - 1  + "px",
-                            "left": parseInt(left) - 1 + "px"
+                        $('.widget-helper').css({
+                            top: parseInt(top) - 1  + 'px',
+                            "left": parseInt(left) - 1 + 'px'
                         });
                         vis.save();
                     }
                 });
 
                 $($this).find(".plumb_dock_left").droppable({
-                    accept: ".pl_r:not(#" + $($this).attr("id") + ")",
+                    accept: ".pl_r:not(#" + $($this).attr('id') + ")",
                     hoverClass: "drop-hover",
                     tolerance: "touch",
                     drop: function (event, ui) {
-                        drag_id = $(ui.draggable).attr("id");
-                        self_id = $this.attr("id");
-                        left = Math.round(parseInt($this.css("left")) - ui.draggable.width()) + "px";
-                        top = Math.round(parseInt($this.css("top")) + $(this).position().top - $(ui.draggable).find(".plumb_dock_right").position().top + (($(this).height() - $(ui.draggable).find(".plumb_dock_right").height()) / 2 )) + "px";
+                        drag_id = $(ui.draggable).attr('id');
+                        self_id = $this.attr('id');
+                        left = Math.round(parseInt($this.css("left")) - ui.draggable.width()) + 'px';
+                        top = Math.round(parseInt($this.css("top")) + $(this).position().top - $(ui.draggable).find(".plumb_dock_right").position().top + (($(this).height() - $(ui.draggable).find(".plumb_dock_right").height()) / 2 )) + 'px';
 
                         vis.views[vis.activeView].widgets[self_id].data.conLeft = drag_id;
                         vis.views[vis.activeView].widgets[drag_id].data.conRight = self_id;
@@ -200,27 +198,27 @@
                         $("#inspect_conRight").val(self_id);
 
                         $(ui.draggable).css({
-                            "top": top,
+                            top: top,
                             "left": left
                         });
 
-                        $(".widget-helper").css({
-                            "top": parseInt(top) - 1  + "px",
-                            "left": parseInt(left) - 1 + "px"
+                        $('.widget-helper').css({
+                            top: parseInt(top) - 1  + 'px',
+                            "left": parseInt(left) - 1 + 'px'
                         });
                         vis.save();
                     }
                 });
 
                 $($this).find(".plumb_dock_right").droppable({
-                    accept: ".pl_l:not(#" + $($this).attr("id") + ")",
+                    accept: ".pl_l:not(#" + $($this).attr('id') + ")",
                     hoverClass: "drop-hover",
-                    tolerance: "touch",
+                    tolerance: 'touch',
                     drop: function (event, ui) {
-                        drag_id = $(ui.draggable).attr("id");
-                        self_id = $this.attr("id");
-                        left = Math.round(parseInt($this.css("left")) + $this.width()) + "px";
-                        top = Math.round(parseInt($this.css("top")) + $(this).position().top - $(ui.draggable).find(".plumb_dock_left").position().top + (($(this).height() - $(ui.draggable).find(".plumb_dock_left").height()) / 2 )) + "px";
+                        drag_id = $(ui.draggable).attr('id');
+                        self_id = $this.attr('id');
+                        left = Math.round(parseInt($this.css("left")) + $this.width()) + 'px';
+                        top = Math.round(parseInt($this.css("top")) + $(this).position().top - $(ui.draggable).find(".plumb_dock_left").position().top + (($(this).height() - $(ui.draggable).find(".plumb_dock_left").height()) / 2 )) + 'px';
 
                         vis.views[vis.activeView].widgets[self_id].data.conRight = drag_id;
                         vis.views[vis.activeView].widgets[drag_id].data.conLeft = self_id;
@@ -230,13 +228,13 @@
                         $("#inspect_conLeft").val(self_id);
 
                         $(ui.draggable).css({
-                            "top": top,
+                            top: top,
                             "left": left
                         });
 
-                        $(".widget-helper").css({
-                            "top": parseInt(top) - 1 + "px",
-                            "left": parseInt(left) - 1 + "px"
+                        $('.widget-helper').css({
+                            top: parseInt(top) - 1 + 'px',
+                            "left": parseInt(left) - 1 + 'px'
                         });
                         vis.save();
                     }
@@ -245,7 +243,6 @@
                 $this.on("dragstart", function (event, ui) {
                     vis.binds.plumb.dragging = true;
                     $("#visview_" + vis.activeView).find(".plumb_dock_bottom, .plumb_dock_left, .plumb_dock_right, .plumb_dock_top").droppable("option", "disabled", false);
-
                 });
 
                 $this.on("dragstop", function (event, ui) {
@@ -254,64 +251,61 @@
             }
         },
         check_lengh: function (id) {
-
-            if ($("#" + id).hasClass("plumb_pipe")) {
+            if ($('#' + id).hasClass("plumb_pipe")) {
                 var data = vis.views[vis.activeView].widgets[id].data;
 
-                if (data.conLeft != "" && data.conRight != "" && data.conLeft != undefined && data.conRight != undefined) {
-                    var $left = $("#" + data.conLeft);
-                    var $right = $("#" + data.conRight);
+                if (data.conLeft !== "" && data.conRight !== "" && data.conLeft !== undefined && data.conRight !== undefined) {
+                    var $left = $('#' + data.conLeft);
+                    var $right = $('#' + data.conRight);
                     var length;
 
                     length = parseInt($right.css("left")) - (parseInt($left.css("left")) + parseInt($left.css("width")));
 
                     if (length > 0) {
-                        vis.views[vis.activeView].widgets[id].style.width = length + "px";
-                        vis.views[vis.activeView].widgets[id].style.left = parseInt($left.css("left")) + parseInt($left.css("width")) + "px";
+                        vis.views[vis.activeView].widgets[id].style.width = length + 'px';
+                        vis.views[vis.activeView].widgets[id].style.left = parseInt($left.css("left")) + parseInt($left.css("width")) + 'px';
                         vis.save();
-                        $("#" + id).css({
-                            "width": length + "px",
-                            "left": parseInt($left.css("left")) + parseInt($left.css("width")) + "px"
+                        $('#' + id).css({
+                            width: length + 'px',
+                            "left": parseInt($left.css("left")) + parseInt($left.css("width")) + 'px'
                         });
-                        $(".widget-helper").css({
-                            "width": length + "px",
-                            "left": parseInt($left.css("left")) + parseInt($left.css("width")) + "px"
+                        $('.widget-helper').css({
+                            width: length + 'px',
+                            "left": parseInt($left.css("left")) + parseInt($left.css("width")) + 'px'
                         });
                     }
 
-                } else if (data.conTop != "" && data.conBottom != "" && data.conTop != undefined && data.conBottom != undefined) {
-                    var $top = $("#" + data.conTop);
-                    var $bottom = $("#" + data.conBottom);
+                } else if (data.conTop !== "" && data.conBottom !== "" && data.conTop !== undefined && data.conBottom !== undefined) {
+                    var $top = $('#' + data.conTop);
+                    var $bottom = $('#' + data.conBottom);
 
-                    length = parseInt($bottom.css("top")) - (parseInt($top.css("top")) + parseInt($top.css("height")));
+                    length = parseInt($bottom.css("top")) - (parseInt($top.css("top")) + parseInt($top.css('height')));
                     if (length > 0) {
-                        vis.views[vis.activeView].widgets[id].style.height = length + "px";
-                        vis.views[vis.activeView].widgets[id].style.top = parseInt($top.css("top")) + parseInt($top.css("height")) + "px";
+                        vis.views[vis.activeView].widgets[id].style.height = length + 'px';
+                        vis.views[vis.activeView].widgets[id].style.top = parseInt($top.css("top")) + parseInt($top.css('height')) + 'px';
                         vis.save();
-                        $("#" + id).css({
-                            "height": length + "px",
-                            "top": parseInt($top.css("top")) + parseInt($top.css("height")) + "px"
+                        $('#' + id).css({
+                            height: length + 'px',
+                            top: parseInt($top.css("top")) + parseInt($top.css('height')) + 'px'
                         });
-                        $(".widget-helper").css({
-                            "height": length + "px",
-                            "top": parseInt($top.css("top")) + parseInt($top.css("height")) + "px"
+                        $('.widget-helper').css({
+                            height: length + 'px',
+                            top: parseInt($top.css("top")) + parseInt($top.css('height')) + 'px'
                         });
                     }
                 }
             }
-
         },
         check: function (id, event, back) {
-
             var data = {
                 type:   'plumb_change',
                 from:   event.from,
                 color:  event.color,
                 status: event.status
             };
-            vis.binds.plumb.set_normal(id, data, back);
+            vis.binds.plumb.set_normal(id, data, back, event.list);
 
-//            var $this = $("#" + id);
+//            var $this = $('#' + id);
 //            var plumb = vis.binds.plumb.data;
 //            var self = vis.binds.plumb.data[id];
 
@@ -337,41 +331,43 @@
 //            }
 
         },
-        set_normal: function (id, event, back) {
-            var $this = $('#' + id);
+        set_normal: function (id, event, back, list) {
+            list = list || [];
             var self = vis.binds.plumb.data[id];
             $('#' + id + '_fill').attr('fill', event.color.c);
 
             self.status = event.status;
-            self.color = event.color;
-
-            if (back) {
-                vis.binds.plumb.trigger_b(id, event)
+            self.color  = event.color;
+            
+            if (list.indexOf(id) === -1) {
+                list.push(id);
+                event.list = list;
+                if (back) {
+                    vis.binds.plumb.trigger_b(id, event);
+                } else {
+                    vis.binds.plumb.trigger(id, event);
+                }
             } else {
-                vis.binds.plumb.trigger(id, event)
+                console.warn('Detected cyclic structure: ' + list.join(', ') + ' => ' + id);
             }
-
         },
         set_collision: function (id) {
-
-            var $this = $("#" + id);
             var plumb = vis.binds.plumb.data;
             var self = vis.binds.plumb.data[id];
             self.status = true;
             self.coli = true;
 
             if (self.conLeft && self.conRight) {
-                $("#" + id + "_coli_l").attr("stop-color", plumb[self.conLeft].color.c);
-                $("#" + id + "_coli_r").attr("stop-color", plumb[self.conRight].color.c);
-                $("#" + id + "_fill").attr("fill", "url(#" + id + "_coli)");
+                $('#' + id + "_coli_l").attr("stop-color", plumb[self.conLeft].color.c);
+                $('#' + id + "_coli_r").attr("stop-color", plumb[self.conRight].color.c);
+                $('#' + id + "_fill").attr("fill", "url(#" + id + "_coli)");
             } else if (self.conTop && self.conBottom) {
-                $("#" + id + "_coli_t").attr("stop-color", plumb[self.conTop].color.c);
-                $("#" + id + "_coli_b").attr("stop-color", plumb[self.conBottom].color.c);
-                $("#" + id + "_fill").attr("fill", "url(#" + id + "_coli)");
+                $('#' + id + "_coli_t").attr("stop-color", plumb[self.conTop].color.c);
+                $('#' + id + "_coli_b").attr("stop-color", plumb[self.conBottom].color.c);
+                $('#' + id + "_fill").attr("fill", "url(#" + id + "_coli)");
             }
         },
         rest_collision: function (id, event) {
-            var $this = $("#" + id);
             var plumb = vis.binds.plumb.data;
             var self = vis.binds.plumb.data[id];
             var e = JSON.parse(JSON.stringify(event));
@@ -379,42 +375,40 @@
             e.status = true;
 
             $.each(self.cons, function () {
-
-                if (self[this] != event.from && self[this] != null) {
+                if (self[this] !== event.from && self[this]) {
                     e.color = plumb[self[this]].color;
                     self.color = e.color;
                 }
             });
 
-            $("#" + id + "_fill").attr("fill", e.color.c);
+            $('#' + id + '_fill').attr('fill', e.color.c);
 
-            vis.binds.plumb.trigger_b(id, e)
+            vis.binds.plumb.trigger_b(id, e);
             self.coli = false;
         },
         trigger: function (id, event) {
             var self = vis.binds.plumb.data[id];
             var e = JSON.parse(JSON.stringify(event));
             $.each(self.cons, function () {
-                if (self[this] != event.from) {
+                if (self[this] !== event.from) {
                     e.from = id;
-                    $("#" + self[this]).trigger(e);
+                    $('#' + self[this]).trigger(e);
                 }
             });
         },
         trigger_b: function (id, event) {
             var self = vis.binds.plumb.data[id];
             var e = JSON.parse(JSON.stringify(event));
-
             $.each(self.cons, function () {
-                if (self[this] == event.from) {
+                if (self[this] === event.from) {
                     e.from = id;
-                    $("#" + self[this]).trigger(e);
+                    $('#' + self[this]).trigger(e);
                 }
             });
         },
 
         svg_tpiece: function (id) {
-            $("#" + id + "_svg").append('\
+            $('#' + id + "_svg").append('\
             <svg\
             width="100%"\
             height="100%"\
@@ -463,8 +457,7 @@
             ');
         },
         svg_bogen: function (id) {
-
-            $("#" + id + "_svg").append('\
+            $('#' + id + "_svg").append('\
             <svg\
             width="100%"\
             height="100%"\
@@ -490,7 +483,7 @@
             ');
         },
         svg_pipe_v: function (id) {
-            $("#" + id + '_svg').append('\
+            $('#' + id + '_svg').append('\
             <svg \
             width="100%"\
             height="100%"\
@@ -513,8 +506,7 @@
             ');
         },
         svg_pipe_h: function (id) {
-
-            $("#" + id + "_svg").append('\
+            $('#' + id + "_svg").append('\
             <svg \
             width="100%"\
             height="100%"\
@@ -537,8 +529,7 @@
             ');
         },
         svg_check_valve_h: function (id) {
-
-            $("#" + id + "_svg").append('\
+            $('#' + id + "_svg").append('\
              <svg\
              width="100%"\
             height="100%"\
@@ -568,8 +559,7 @@
             ');
         },
         svg_check_valve_v: function (id) {
-
-            $("#" + id + "_svg").append('\
+            $('#' + id + "_svg").append('\
              <svg\
              width="100%"\
             height="100%"\
@@ -601,16 +591,16 @@
 
         pump: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
+            var id = $this.attr('id');
             var plumb = vis.binds.plumb.data;
 
             vis.binds.plumb.data[id] = {
                 type: "pump",
                 cons: [],
                 coli: false,
-                conLeft: data.conLeft || null,
-                conRight: data.conRight || null,
-                conTop: data.conTop || null,
+                conLeft:   data.conLeft   || null,
+                conRight:  data.conRight  || null,
+                conTop:    data.conTop    || null,
                 conBottom: data.conBottom || null,
                 status: false,
                 color: {
@@ -623,90 +613,91 @@
             var self = plumb[id];
 
             setTimeout(function () {
-
                 $this.find(".plumb_dock_right, .plumb_dock_left, .plumb_dock_top, .plumb_dock_bottom").remove();
                 var l;
                 var t;
                 var s;
-                var shadow;
 
-                if (data.conTop_show == true) {
+                if (data.conTop_show) {
                     self.cons.push("conTop");
                     $this.find(".pump").append('<div id="' + id + '_dock_top_svg" class="plumb_dock_top"></div>');
                     vis.binds.plumb.svg_pipe_v(id + "_dock_top");
 
                     s = (data.conTop_size || 20);
-                    t = "-10";
+                    t = '-10';
                     l = (($this.width() - s) / 100 * (data.conTop_pos || 50));
 
                     $this.find(".plumb_dock_top").css({
-                        top: t + "px",
-                        left: l + "px",
-                        height: "20px",
-                        width: s + "px"
+                        top: t + 'px',
+                        left: l + 'px',
+                        height: '20px',
+                        width: s + 'px'
                     });
 
-                    $("#" + id + "_dock_top_fill").attr("fill", data.color_off);
-
+                    $('#' + id + "_dock_top_fill").attr("fill", data.color_off);
                 }
-                if (data.conBottom_show == true) {
+
+                if (data.conBottom_show) {
                     self.cons.push("conBottom");
                     $this.find(".pump").append('<div id="' + id + '_dock_bottom_svg" class="plumb_dock_bottom"></div>');
                     vis.binds.plumb.svg_pipe_v(id + "_dock_bottom");
                     s = (data.conBottom_size || 20);
-                    t = "-10";
+                    t = '-10';
                     l = (($this.width() - s) / 100 * (data.conBottom_pos || 50));
 
                     $this.find(".plumb_dock_bottom").css({
-                        bottom: t + "px",
-                        left: l + "px",
-                        height: "20px",
-                        width: s + "px"
+                        bottom: t + 'px',
+                        left: l + 'px',
+                        height: '20px',
+                        width: s + 'px'
                     });
-                    $("#" + id + "_dock_bottom_fill").attr("fill", data.color_off);
+                    $('#' + id + "_dock_bottom_fill").attr("fill", data.color_off);
                 }
-                if (data.conLeft_show == true) {
+
+                if (data.conLeft_show) {
                     self.cons.push("conLeft");
                     $this.find(".pump").append('<div id="' + id + '_dock_left_svg" class="plumb_dock_left"></div>');
                     vis.binds.plumb.svg_pipe_h(id + "_dock_left");
                     s = (data.conLeft_size || 20);
-                    l = "-10";
+                    l = '-10';
                     t = (($this.height() - s) / 100 * (data.conLeft_pos || 50));
 
                     $this.find(".plumb_dock_left").css({
-                        top: t + "px",
-                        left: l + "px",
-                        height: s + "px",
-                        width: "20px"
+                        top: t + 'px',
+                        left: l + 'px',
+                        height: s + 'px',
+                        width: '20px'
                     });
-                    $("#" + id + "_dock_left_fill").attr("fill", data.color_off);
+                    $('#' + id + "_dock_left_fill").attr("fill", data.color_off);
                 }
-                if (data.conRight_show == true) {
+
+                if (data.conRight_show) {
                     self.cons.push("conRight");
                     $this.find(".pump").append('<div id="' + id + '_dock_right_svg" class="plumb_dock_right"></div>');
                     vis.binds.plumb.svg_pipe_h(id + "_dock_right");
                     s = (data.conRight_size || 20);
-                    l = "-10";
+                    l = '-10';
                     t = (($this.height() - s) / 100 * (data.conRight_pos || 50));
 
                     $this.find(".plumb_dock_right").css({
-                        top: t + "px",
-                        right: l + "px",
-                        height: s + "px",
-                        width: "20px"
+                        top: t + 'px',
+                        right: l + 'px',
+                        height: s + 'px',
+                        width: '20px'
                     });
-                    $("#" + id + "_dock_right_fill").attr("fill", data.color_off);
+                    $('#' + id + "_dock_right_fill").attr("fill", data.color_off);
                 }
                 vis.binds.plumb.plumb_drop($this);
             });
 
             $this.bind('plumb_change', function (event) {
-                if (vis.states[data.oid + '.val'] >= 1 && event.status == false && event.color.c_from != id) {
+                if (vis.states[data.oid + '.val'] >= 1 && !event.status && event.color.c_from !== id) {
                     setTimeout(function () {
                         var ev = {
-                            type: "plumb_change",
+                            type: 'plumb_change',
                             from: id,
                             status: true,
+                            list: event.list,
                             color: {
                                 c_from: id,
                                 c_default: data.color_off,
@@ -714,16 +705,15 @@
                             }
                         };
                         self.color = ev.color;
-                        $("#" + event.from).trigger(ev);
-                    }, 0)
-
+                        $('#' + event.from).trigger(ev);
+                    }, 0);
                 }
             });
 
             vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
                 vis.binds.plumb.stop = 0;
                 var ev = {
-                    type: "plumb_change",
+                    type: 'plumb_change',
                     from: id,
                     color: {
                         c_from: id,
@@ -739,21 +729,18 @@
                 }
                 self.color = ev.color;
                 $.each(self.cons, function () {
-                    $("#" + id + "_dock_top_fill").attr("fill", ev.color.c);
-                    $("#" + id + "_dock_bottom_fill").attr("fill", ev.color.c);
-                    $("#" + id + "_dock_left_fill").attr("fill", ev.color.c);
-                    $("#" + id + "_dock_right_fill").attr("fill", ev.color.c);
-                    if ($("#" + self[this])) {
-                        $("#" + self[this]).trigger(ev);
-                    }
+                    $('#' + id + "_dock_top_fill").attr("fill", ev.color.c);
+                    $('#' + id + "_dock_bottom_fill").attr("fill", ev.color.c);
+                    $('#' + id + "_dock_left_fill").attr("fill", ev.color.c);
+                    $('#' + id + "_dock_right_fill").attr("fill", ev.color.c);
+                    $('#' + self[this]).trigger(ev);
                 });
             });
 
             setTimeout(function () {
                 $($this.parent()).on("rendered", function () {
                     var ev = {
-                        /**/
-                        type: "plumb_change",
+                        type: 'plumb_change',
                         from: id,
                         color: {
                             c_from: id,
@@ -769,142 +756,21 @@
                     }
                     self.color = ev.color;
                     $.each(self.cons, function () {
-                        $("#" + id + "_dock_top_fill").attr("fill", ev.color.c);
-                        $("#" + id + "_dock_bottom_fill").attr("fill", ev.color.c);
-                        $("#" + id + "_dock_left_fill").attr("fill", ev.color.c);
-                        $("#" + id + "_dock_right_fill").attr("fill", ev.color.c);
-                        if ($("#" + self[this])) {
-                            $("#" + self[this]).trigger(ev);
-                        }
+                        $('#' + id + "_dock_top_fill").attr("fill", ev.color.c);
+                        $('#' + id + "_dock_bottom_fill").attr("fill", ev.color.c);
+                        $('#' + id + "_dock_left_fill").attr("fill", ev.color.c);
+                        $('#' + id + "_dock_right_fill").attr("fill", ev.color.c);
+                        $('#' + self[this]).trigger(ev);
                     });
                 })
             });
-
         },
         sprinkler_i: function (el, data) {
             var $this = $(el).parent();
             var $head = $(el);
             var $wp = $this.find(".plumb_sprinkler_i");
             var $water = $this.find(".plumb_sprinkler_i_water");
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
-
-            vis.binds.plumb.data[id] = {
-                type: "pump",
-                cons: ["conTop", "conBottom", "conLeft", "conRight"],
-                coli: false,
-                conLeft: data.conLeft || null,
-                conRight: data.conRight || null,
-                conTop: data.conTop || null,
-                conBottom: data.conBottom || null,
-                status: false,
-                color: {
-                    c: null,
-                    c_from: null,
-                    c_default: null
-                }
-            }
-
-            var self = plumb[id];
-
-            $this.css("overflow", "visible");
-
-            vis.binds.plumb.plumb_drop($this);
-
-            $($this).on("resize", function () {
-                set()
-            });
-
-            $this.bind("plumb_change", function (event) {
-                self.status = event.status;
-                if (event.status == true) {
-                    $wp.show();
-                    $head.css({
-                        "background-color": data.head_color
-                    });
-                } else {
-                    $wp.hide();
-                    if (data["head-show"] == false) {
-                        $head.css({
-                            "background-color": "transparent"
-                        });
-                    }
-                }
-            });
-
-            function set() {
-                $('#' + id + '_style').remove();
-
-                $('<style id="' + id + '_style">\
-                @-webkit-keyframes ' + id + '-ANIMATION {\
-                    0%   { -webkit-transform: rotate(' + data.start + 'deg);}\
-                    80%  { -webkit-transform: rotate(' + data.ende + 'deg);}\
-                    100% { -webkit-transform: rotate(' + data.start + 'deg);}\
-                }\
-                @keyframes ' + id + '-ANIMATION {\
-                    0%   { transform: rotate(' + data.start + 'deg);}\
-                    80%  { transform: rotate(' + data.ende + 'deg); }\
-                    100% { transform: rotate(' + data.start + 'deg);}\
-                }\
-                <style>').appendTo("head");
-
-
-                $wp.css({
-                    "-webkit-animation": id + "-ANIMATION " + data.time + "s infinite linear",
-                    "animation": id + "-ANIMATION " + data.time + "s infinite linear"
-                });
-                $water.css({
-                    height: data.spray_width + "px",
-                    width: data.stroke + "px",
-                    left: parseInt($($wp).width() / 2 - data.stroke / 2) + "px",
-                    top: parseInt($($wp).height() / 2 - data.spray_width) + "px",
-                    position: "relative",
-                    "background-color": data.water_color,
-                    opacity: data.opacity,
-                    "border-radius": "100px"
-                });
-
-
-                if (data.fog == true) {
-                    $water.css({
-                        "box-shadow": '0px 0px ' + (data.stroke * 2) + 'px ' + data.stroke + 'px ' + data.water_color
-                    })
-                }
-
-                if (data.head_round == "true" || data.head_round == true) {
-                    $head.css({
-                        "border-radius": "100%"
-                    });
-                }
-
-                if (self.status == true || (vis.editMode == true && data.test == true)) {
-                    $wp.show()
-                } else {
-                    $wp.hide()
-                }
-
-                if ((self.status == true || data.head_show == "true" || data.head_show == true ) || (vis.editMode == true && data.test == "true")) {
-                    $head.css({
-                        "background-color": data.head_color
-                    });
-                } else {
-                    $head.css({
-                        "background-color": "pransparent"
-                    });
-                }
-            }
-
-            setTimeout(function () {
-                set()
-            })
-
-
-        },
-        sprinkler_r: function (el, data) {
-            var $this = $(el).parent();
-            var $head = $this.find(".plumb_sprinkler_r_head");
-            var $water = $this.find(".plumb_sprinkler_r");
-            var id = $this.attr("id");
+            var id = $this.attr('id');
             var plumb = vis.binds.plumb.data;
 
             vis.binds.plumb.data[id] = {
@@ -925,18 +791,134 @@
 
             var self = plumb[id];
 
+            $this.css('overflow', 'visible');
+
             vis.binds.plumb.plumb_drop($this);
 
-            $this.bind("plumb_change", function (event) {
+            $($this).on('resize', function () {
+                set();
+            });
+
+            $this.bind('plumb_change', function (event) {
                 self.status = event.status;
-                if (event.status == true) {
+                if (event.status) {
+                    $wp.show();
+                    $head.css({
+                        "background-color": data.head_color
+                    });
+                } else {
+                    $wp.hide();
+                    if (!data['head-show']) {
+                        $head.css({
+                            "background-color": 'transparent'
+                        });
+                    }
+                }
+            });
+
+            function set() {
+                $('#' + id + '_style').remove();
+
+                $('<style id="' + id + '_style">\
+                    @-webkit-keyframes ' + id + '-ANIMATION {\
+                        0%   { -webkit-transform: rotate(' + data.start + 'deg);}\
+                        80%  { -webkit-transform: rotate(' + data.ende + 'deg);}\
+                        100% { -webkit-transform: rotate(' + data.start + 'deg);}\
+                    }\
+                    @keyframes ' + id + '-ANIMATION {\
+                        0%   { transform: rotate(' + data.start + 'deg);}\
+                        80%  { transform: rotate(' + data.ende + 'deg); }\
+                        100% { transform: rotate(' + data.start + 'deg);}\
+                    }\
+                <style>').appendTo("head");
+
+
+                $wp.css({
+                    "-webkit-animation": id + "-ANIMATION " + data.time + "s infinite linear",
+                    "animation": id + "-ANIMATION " + data.time + "s infinite linear"
+                });
+                $water.css({
+                    height: data.spray_width + 'px',
+                    width: data.stroke + 'px',
+                    left: parseInt($($wp).width() / 2 - data.stroke / 2) + 'px',
+                    top: parseInt($($wp).height() / 2 - data.spray_width) + 'px',
+                    position: "relative",
+                    "background-color": data.water_color,
+                    opacity: data.opacity,
+                    "border-radius": "100px"
+                });
+
+
+                if (data.fog) {
+                    $water.css({
+                        "box-shadow": '0 0 ' + (data.stroke * 2) + 'px ' + data.stroke + 'px ' + data.water_color
+                    })
+                }
+
+                if (data.head_round === 'true' || data.head_round === true) {
+                    $head.css({
+                        "border-radius": '100%'
+                    });
+                }
+
+                if (self.status || (vis.editMode && data.test)) {
+                    $wp.show()
+                } else {
+                    $wp.hide()
+                }
+
+                if ((self.status === true || data.head_show === "true" || data.head_show === true ) || (vis.editMode && (data.test === "true" || data.test === true))) {
+                    $head.css({
+                        "background-color": data.head_color
+                    });
+                } else {
+                    $head.css({
+                        "background-color": 'transparent'
+                    });
+                }
+            }
+
+            setTimeout(function () {
+                set();
+            });
+        },
+        sprinkler_r: function (el, data) {
+            var $this = $(el).parent();
+            var $head = $this.find(".plumb_sprinkler_r_head");
+            var $water = $this.find(".plumb_sprinkler_r");
+            var id = $this.attr('id');
+            var plumb = vis.binds.plumb.data;
+
+            vis.binds.plumb.data[id] = {
+                type: 'pump',
+                cons: ["conTop", "conBottom", "conLeft", "conRight"],
+                coli: false,
+                conLeft: data.conLeft || null,
+                conRight: data.conRight || null,
+                conTop: data.conTop || null,
+                conBottom: data.conBottom || null,
+                status: false,
+                color: {
+                    c: null,
+                    c_from: null,
+                    c_default: null
+                }
+            };
+
+            var self = plumb[id];
+
+            vis.binds.plumb.plumb_drop($this);
+
+            $this.bind('plumb_change', function (event) {
+                self.status = event.status;
+                if (event.status) {
                     $water.show();
 //                    $head.css({
 //                        "background-color": data.head_color
 //                    });
                 } else {
                     $water.hide();
-                    if (data["head-show"] == false) {
+                    if (!data["head-show"]) {
 //                        $head.css({
 //                            "background-color": "transparent"
 //                        });
@@ -945,12 +927,12 @@
             });
 
             function set() {
-                var time = data.time || 36;
-                var start = data.start || 0;
-                var end = data.ende || 180;
+                var time   = data.time   || 36;
+                var start  = data.start  || 0;
+                var end    = data.ende   || 180;
                 var stroke = data.stroke || 10;
-                var set_w = parseInt(data.spray_width);
-                var svg_w = set_w;
+                var set_w  = parseInt(data.spray_width);
+                var svg_w  = set_w;
                 var svg_t;
                 var svg_l;
                 var spray_w;
@@ -958,9 +940,9 @@
                 var spray_h;
                 var spray_l;
                 var radius;
-                var head = parseInt(data.head_size) / 2;
+                var head = parseInt(data.head_size, 10) / 2;
 
-                if (data.spray_range == "270-90") {
+                if (data.spray_range === '270-90') {
                     svg_t = 0;
                     svg_l = 0;
                     spray_w = set_w;
@@ -968,9 +950,9 @@
                     spray_t = -set_w / 2 + head;
                     spray_l = -set_w / 2 + head;
 
-                    start = parseInt(180 / 100 * start) + 270;
-                    end = parseInt(180 / 100 * end) + 270;
-                } else if (data.spray_range == "90-270") {
+                    start = 180 / 100 * parseInt(start, 10) + 270;
+                    end = 180 / 100 * parseInt(end, 10) + 270;
+                } else if (data.spray_range === '90-270') {
                     svg_t = -set_w / 2;
                     svg_l = 0;
                     spray_w = set_w;
@@ -978,9 +960,9 @@
                     spray_t = head;
                     spray_l = -set_w / 2 + head;
 
-                    start = parseInt(180 / 100 * start) + 90;
-                    end = parseInt(180 / 100 * end) + 90;
-                } else if (data.spray_range == "180-360") {
+                    start = 180 / 100 * parseInt(start, 10) + 90;
+                    end = 180 / 100 * parseInt(end, 10) + 90;
+                } else if (data.spray_range === '180-360') {
                     svg_t = 0;
                     svg_l = 0;
                     spray_w = set_w / 2;
@@ -988,9 +970,9 @@
                     spray_t = -set_w / 2 + head;
                     spray_l = -set_w / 2 + head;
 
-                    start = parseInt(180 / 100 * start) + 180;
-                    end = parseInt(180 / 100 * end) + 180;
-                } else if (data.spray_range == "0-180") {
+                    start = 180 / 100 * parseInt(start, 10) + 180;
+                    end = 180 / 100 * parseInt(end, 10) + 180;
+                } else if (data.spray_range === '0-180') {
                     svg_t = 0;
                     svg_l = -set_w / 2;
                     spray_w = set_w / 2;
@@ -998,9 +980,9 @@
                     spray_t = -set_w / 2 + head;
                     spray_l = head;
 
-                    start = parseInt(180 / 100 * start);
-                    end = parseInt(180 / 100 * end);
-                } else if (data.spray_range == "270-360") {
+                    start = 180 / 100 * parseInt(start, 10);
+                    end = 180 / 100 * parseInt(end, 10);
+                } else if (data.spray_range === '270-360') {
                     svg_t = 0;
                     svg_l = 0;
                     spray_w = set_w / 2;
@@ -1008,9 +990,9 @@
                     spray_t = -set_w / 2 + head;
                     spray_l = -set_w / 2 + head;
 
-                    start = parseInt(90 / 100 * start) + 270;
-                    end = parseInt(90 / 100 * end) + 270;
-                } else if (data.spray_range == "0-90") {
+                    start = 90 / 100 * parseInt(start, 10) + 270;
+                    end = 90 / 100 * parseInt(end, 10) + 270;
+                } else if (data.spray_range === '0-90') {
                     svg_t = 0;
                     svg_l = -set_w / 2;
                     spray_w = set_w / 2;
@@ -1018,9 +1000,9 @@
                     spray_t = -set_w / 2 + head;
                     spray_l = head;
 
-                    start = parseInt(90 / 100 * start);
-                    end = parseInt(90 / 100 * end);
-                } else if (data.spray_range == "180-270") {
+                    start = 90 / 100 * parseInt(start, 10);
+                    end = 90 / 100 * parseInt(end, 10);
+                } else if (data.spray_range === '180-270') {
                     svg_t = -set_w / 2;
                     svg_l = 0;
                     spray_w = set_w / 2;
@@ -1028,9 +1010,9 @@
                     spray_t = head;
                     spray_l = -set_w / 2 + head;
 
-                    start = parseInt(90 / 100 * start) + 180;
-                    end = parseInt(90 / 100 * end) + 180;
-                } else if (data.spray_range == "90-180") {
+                    start = 90 / 100 * parseInt(start, 10) + 180;
+                    end = 90 / 100 * parseInt(end, 10) + 180;
+                } else if (data.spray_range === '90-180') {
                     svg_t = -set_w / 2;
                     svg_l = -set_w / 2;
                     spray_w = set_w / 2;
@@ -1038,45 +1020,45 @@
                     spray_t = head;
                     spray_l = head;
 
-                    start = parseInt(90 / 100 * start) + 90;
-                    end = parseInt(90 / 100 * end) + 90;
-                } else if (data.spray_range == "360") {
+                    start = 90 / 100 * parseInt(start, 10) + 90;
+                    end = 90 / 100 * parseInt(end, 10) + 90;
+                } else if (data.spray_range === '360') {
                     svg_t = 0;
                     svg_l = 0;
                     spray_w = set_w;
                     spray_h = set_w;
                     spray_t = -set_w / 2 + head;
                     spray_l = -set_w / 2 + head;
-                    start = parseInt(360 / 100 * start);
-                    if (end == "100") {
-                        end = 359.99 / 100 * end;
+                    start = 360 / 100 * parseInt(start, 10);
+                    if (end === '100') {
+                        end = 359.99;
                     } else {
-                        end = parseInt(360 / 100 * end);
+                        end = 360 / 100 * parseInt(end, 10);
                     }
                 }
                 if (data.head_round) {
-                    radius = "100%"
+                    radius = '100%';
                 } else {
-                    radius = "0"
+                    radius = '0';
                 }
                 $water.css({
-                    top: parseInt(spray_t) + "px",
-                    left: parseInt(spray_l) + "px",
-                    height: spray_h + "px",
-                    width: spray_w + "px",
-                    position: "absolute",
-                    overflow: "hidden"
+                    top: parseInt(spray_t) + 'px',
+                    left: parseInt(spray_l) + 'px',
+                    height: spray_h + 'px',
+                    width: spray_w + 'px',
+                    position: 'absolute',
+                    overflow: 'hidden'
                 });
 
                 $this.css({
                     "border-radius": radius,
-                    "width": data.head_size + "px",
-                    "height": data.head_size + "px"
+                    width: data.head_size + 'px',
+                    height: data.head_size + 'px'
                 });
 
-                $("#widget_helper_" + id).css({
-                    "width": parseInt(data.head_size) + 2 + "px",
-                    "height": parseInt(data.head_size) + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    width: parseInt(data.head_size) + 2 + 'px',
+                    height: parseInt(data.head_size) + 2 + 'px'
                 });
 
 
@@ -1084,60 +1066,56 @@
                 var r = 250;
                 var x1 = 250 + r * Math.sin(_turn_winkel);
                 var y1 = 250 - r * Math.cos(_turn_winkel);
-                var winkel_max = (start - end) * -1;
                 var x2 = 250 + r * Math.sin(end * Math.PI / 180);
                 var y2 = 250 - r * Math.cos(end * Math.PI / 180);
-
+                var p;
                 if ((end - start) < 180) {
-
-                    var p = "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 0,1 " + x2 + "," + y2 + "L 250 250 z";
+                    p = "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 0,1 " + x2 + "," + y2 + "L 250 250 z";
                 } else {
-                    var p = "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 1,1 " + x2 + "," + y2 + " L 250 250 z"
+                    p = "M" + x1 + "," + y1 + " A" + r + "," + r + " 0 1,1 " + x2 + "," + y2 + " L 250 250 z"
                 }
 
-                $("#" + id + "_svg").remove();
+                $('#' + id + "_svg").remove();
                 $water.append('\
-                <svg\
-                xmlns:svg="http://www.w3.org/2000/svg"\
-                xmlns="http://www.w3.org/2000/svg"\
-                id = "' + id + '_svg"\
-                width="100%"\
-                height="100%"\
-                viewBox="0 0 500 500"\
-                >\
-           <clipPath id="starfoo">\
-                <path d="' + p + '"/>\
-                </clipPath>\
-                    <g\
-                     <g\
-            transform="translate(0,0)" clip-path="url(#starfoo)">\
-                        <g style="stroke:' + data.water_color + ';stroke-width:' + stroke + ';stroke-linecap:round;stroke-opacity:' + data.opacity + '" >\
-                        <path d="M 250,500 250,0"/>\
-                        <path d="M 293,496 207,3.8"/>\
-                        <path d="M 335,485 165,14.7"/>\
-                        <path d="M 375,467 125,33"/>\
-                        <path d="M 411,442 89.2,58"/>\
-                        <path d="M 442,411 58.3,88.9"/>\
-                        <path d="M 467,375 33.2,125"/>\
-                        <path d="M 485,335 14.8,165"/>\
-                        <path d="M 496,293 3.61,207"/>\
-                        <path d="M 500,250 -0.117,250"/>\
-                        <path d="M 496,207 3.68,293"/>\
-                        <path d="M 485,165 14.9,335"/>\
-                        <path d="M 467,125 33.2,375"/>\
-                        <path d="M 442,89.2 58.2,411"/>\
-                        <path d="M 411,58.3 89.1,442"/>\
-                        <path d="M 375,33.3 125,467"/>\
-                        <path d="M 335,14.9 165,485"/>\
-                        <path d="M 293,3.71 207,496"/>\
+                    <svg\
+                    xmlns:svg="http://www.w3.org/2000/svg"\
+                    xmlns="http://www.w3.org/2000/svg"\
+                    id = "' + id + '_svg"\
+                    width="100%"\
+                    height="100%"\
+                    viewBox="0 0 500 500"\
+                    >\
+                <clipPath id="starfoo">\
+                    <path d="' + p + '"/>\
+                    </clipPath>\
+                         <g transform="translate(0,0)" clip-path="url(#starfoo)">\
+                            <g style="stroke:' + data.water_color + ';stroke-width:' + stroke + ';stroke-linecap:round;stroke-opacity:' + data.opacity + '" >\
+                                <path d="M 250,500 250,0"/>\
+                                <path d="M 293,496 207,3.8"/>\
+                                <path d="M 335,485 165,14.7"/>\
+                                <path d="M 375,467 125,33"/>\
+                                <path d="M 411,442 89.2,58"/>\
+                                <path d="M 442,411 58.3,88.9"/>\
+                                <path d="M 467,375 33.2,125"/>\
+                                <path d="M 485,335 14.8,165"/>\
+                                <path d="M 496,293 3.61,207"/>\
+                                <path d="M 500,250 -0.117,250"/>\
+                                <path d="M 496,207 3.68,293"/>\
+                                <path d="M 485,165 14.9,335"/>\
+                                <path d="M 467,125 33.2,375"/>\
+                                <path d="M 442,89.2 58.2,411"/>\
+                                <path d="M 411,58.3 89.1,442"/>\
+                                <path d="M 375,33.3 125,467"/>\
+                                <path d="M 335,14.9 165,485"/>\
+                                <path d="M 293,3.71 207,496"/>\
                                 <animateTransform id="t_two" attributeName="transform" type="rotate" from="0 250 250" to=" 360 250 250" begin="0s" dur="' + time + '" repeatCount="indefinite"   />\
+                            </g>\
                         </g>\
-                    </g>\
-                </svg>\
-            ');
+                    </svg>\
+                ');
                 //                    <circle cx="250" cy="250" r="' + data.head_size + '"  fill="' + data.head_color + '"  />\
 
-                if (self.status == true || (vis.editMode == true && data.test == true)) {
+                if (self.status || (vis.editMode && data.test)) {
                     $water.show()
                 } else {
                     $water.hide()
@@ -1145,44 +1123,42 @@
 
                 var $svg = $this.find("svg");
                 $svg.css({
-                    width: svg_w + "px",
-                    height: svg_w + "px",
-                    top: parseInt(svg_t) + "px",
-                    left: parseInt(svg_l) + "px",
-                    position: "absolute"
-
+                    width: svg_w + 'px',
+                    height: svg_w + 'px',
+                    top: parseInt(svg_t) + 'px',
+                    left: parseInt(svg_l) + 'px',
+                    position: 'absolute'
                 });
 
-                if (data.head_round == "true" || data.head_round == true) {
+                if (data.head_round === 'true' || data.head_round === true) {
                     $head.css({
-                        "border-radius": "100%"
+                        "border-radius": '100%'
                     });
                 }
             }
 
             setTimeout(function () {
-                set()
-            })
+                set();
+            });
         },
         pipe_h: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
-            $($this).on("resize", function () {
-                $("#widget_helper_" + id).css({
-                    top: parseInt($this.css("top")) - 2 + "px",
-                    left: parseInt($this.css("left")) - 2 + "px"
+            $($this).on('resize', function () {
+                $('#widget_helper_' + id).css({
+                    top: parseInt($this.css('top')) - 2 + 'px',
+                    left: parseInt($this.css('left')) - 2 + 'px'
                 })
             });
 
-            $($this).on("resizestop", function (event, ui) {
+            $($this).on('resizestop', function (event, ui) {
                 vis.views[vis.activeView].widgets[id].style.left = ui.position.left;
                 vis.views[vis.activeView].widgets[id].style.top = ui.position.top;
                 vis.save();
             });
             vis.binds.plumb.data[id] = {
-                type: "pipe",
+                type: 'pipe',
                 cons: ["conLeft", "conRight"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1195,7 +1171,7 @@
                     c_from: null,
                     c_default: null
                 }
-            }
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_pipe_h(id);
@@ -1219,14 +1195,13 @@
                 });
             } else {
                 $this.bind('plumb_change', function (event) {
-                    vis.binds.plumb.check(id, event)
+                    vis.binds.plumb.check(id, event);
                 });
             }
         },
         pipe_v: function (el, data) {
             var $this = $(el).parent();
             var id = $this.attr('id');
-            var plumb = vis.binds.plumb.data;
 
             vis.binds.plumb.data[id] = {
                 type:       'pipe',
@@ -1261,7 +1236,7 @@
 
                 $($this).css('width', data.pipe_size + 'px');
                 $('#widget_helper_' + id).css({
-                    width: parseInt(data.pipe_size) + 2 + "px"
+                    width: parseInt(data.pipe_size) + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -1285,11 +1260,10 @@
         },
         bogen_br: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
-                type: "pipe",
+                type: 'pipe',
                 cons: ["conRight", "conBottom"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1302,72 +1276,17 @@
                     c_from: null,
                     c_default: null
                 }
-            }
-
-            var self = plumb[id];
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_bogen(id);
                 $($this).css({
-                    height: data.pipe_size + "px",
-                    width: data.pipe_size + "px"
+                    height: data.pipe_size + 'px',
+                    width: data.pipe_size + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) + 2 + "px",
-                    width: parseInt(data.pipe_size) + 2 + "px"
-                });
-                if (data.oid) {
-                    $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
-                }
-            });
-
-            vis.binds.plumb.plumb_drop($this);
-
-            $this.data('color_on',  data.color_on  || 'green');
-            $this.data('color_off', data.color_off || '#c0c0c0');
-
-            if (data.oid) {
-                vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
-                    $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(newVal) ? $this.data('color_on') : $this.data('color_off'));
-                });
-            } else {
-                $this.bind("plumb_change", function (event) {
-                    vis.binds.plumb.check(id, event)
-                });
-            }
-        },
-        bogen_bl: function (el, data) {
-            var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
-
-            vis.binds.plumb.data[id] = {
-                type: "pipe",
-                cons: ["conLeft", "conBottom"],
-                coli: false,
-                conLeft: data.conLeft || null,
-                conRight: data.conRight || null,
-                conTop: data.conTop || null,
-                conBottom: data.conBottom || null,
-                status: false,
-                color: {
-                    c: null,
-                    c_from: null,
-                    c_default: null
-                }
-            }
-
-            var self = plumb[id];
-
-            setTimeout(function () {
-                vis.binds.plumb.svg_bogen(id);
-                $($this).css({
-                    height: data.pipe_size + "px",
-                    width: data.pipe_size + "px"
-                });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) + 2 + "px",
-                    width: parseInt(data.pipe_size) + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) + 2 + 'px',
+                    width: parseInt(data.pipe_size) + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -1385,17 +1304,66 @@
                 });
             } else {
                 $this.bind('plumb_change', function (event) {
-                    vis.binds.plumb.check(id, event)
+                    vis.binds.plumb.check(id, event);
+                });
+            }
+        },
+        bogen_bl: function (el, data) {
+            var $this = $(el).parent();
+            var id = $this.attr('id');
+
+            vis.binds.plumb.data[id] = {
+                type: 'pipe',
+                cons: ["conLeft", "conBottom"],
+                coli: false,
+                conLeft: data.conLeft || null,
+                conRight: data.conRight || null,
+                conTop: data.conTop || null,
+                conBottom: data.conBottom || null,
+                status: false,
+                color: {
+                    c: null,
+                    c_from: null,
+                    c_default: null
+                }
+            };
+
+            setTimeout(function () {
+                vis.binds.plumb.svg_bogen(id);
+                $($this).css({
+                    height: data.pipe_size + 'px',
+                    width: data.pipe_size + 'px'
+                });
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) + 2 + 'px',
+                    width: parseInt(data.pipe_size) + 2 + 'px'
+                });
+                if (data.oid) {
+                    $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
+                }
+            });
+
+            vis.binds.plumb.plumb_drop($this);
+
+            $this.data('color_on',  data.color_on  || 'green');
+            $this.data('color_off', data.color_off || '#c0c0c0');
+
+            if (data.oid) {
+                vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
+                    $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(newVal) ? $this.data('color_on') : $this.data('color_off'));
+                });
+            } else {
+                $this.bind('plumb_change', function (event) {
+                    vis.binds.plumb.check(id, event);
                 });
             }
         },
         bogen_tr: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
-                type:       "pipe",
+                type:       'pipe',
                 cons:       ["conRight", "conTop"],
                 coli:       false,
                 conLeft:    data.conLeft || null,
@@ -1410,15 +1378,13 @@
                 }
             };
 
-            var self = plumb[id];
-
             setTimeout(function () {
                 vis.binds.plumb.svg_bogen(id);
                 $($this).css({
-                    height: data.pipe_size + "px",
-                    width: data.pipe_size + "px"
+                    height: data.pipe_size + 'px',
+                    width: data.pipe_size + 'px'
                 });
-                $("#widget_helper_" + id).css({
+                $('#widget_helper_' + id).css({
                     height: parseInt(data.pipe_size) + 2 + 'px',
                     width:  parseInt(data.pipe_size) + 2 + 'px'
                 });
@@ -1444,12 +1410,10 @@
         },
         bogen_tl: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
-
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
-                type: "pipe",
+                type: 'pipe',
                 cons: ["conLeft", "conTop"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1462,19 +1426,17 @@
                     c_from: null,
                     c_default: null
                 }
-            }
-
-            var self = plumb[id];
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_bogen(id);
                 $($this).css({
-                    height: data.pipe_size + "px",
-                    width: data.pipe_size + "px"
+                    height: data.pipe_size + 'px',
+                    width: data.pipe_size + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) + 2 + "px",
-                    width: parseInt(data.pipe_size) + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) + 2 + 'px',
+                    width: parseInt(data.pipe_size) + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -1498,13 +1460,12 @@
         },
         valve_h: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
+            var id = $this.attr('id');
             var plumb = vis.binds.plumb.data;
-            var self_color;
             var last_from;
 
-            vis.binds.plumb.data[id] = {
-                type: "pipe",
+            plumb[id] = {
+                type: 'pipe',
                 cons: ["conLeft", "conRight"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1522,12 +1483,12 @@
             var self = plumb[id];
 
             $($this).css({
-                height: parseInt(data.pipe_size) + "px",
-                width: parseInt(parseInt(data.pipe_size) * 1.5) + "px"
+                height: parseInt(data.pipe_size) + 'px',
+                width: parseInt(parseInt(data.pipe_size) * 1.5) + 'px'
             });
-            $("#widget_helper_" + id).css({
-                height: parseInt(data.pipe_size) + 2 + "px",
-                width: parseInt(parseInt(data.pipe_size) * 1.5) + 2 + "px"
+            $('#widget_helper_' + id).css({
+                height: parseInt(data.pipe_size) + 2 + 'px',
+                width: parseInt(parseInt(data.pipe_size) * 1.5) + 2 + 'px'
             });
 
             vis.binds.plumb.plumb_drop($this);
@@ -1549,7 +1510,7 @@
             $this.data('color_off', data.color_off || 'red');
 
             $this.bind('plumb_change', function (event) {
-                if (event.status == true) {
+                if (event.status) {
                     last_from = event.from;
                 }
 
@@ -1568,21 +1529,21 @@
                 function check_ev(ev) {
                     var x = ev;
                     x.color = x.color || {};
-                    if (!x.color.c) x.color.c = "#c0c0c0";
-                    if (!x.color.c_default) x.color.c_default = "#c0c0c0";
+                    if (!x.color.c) x.color.c = '#c0c0c0';
+                    if (!x.color.c_default) x.color.c_default = '#c0c0c0';
                     return x
                 }
 
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
 
-                    if (self.conLeft == last_from && last_from != undefined && plumb[self.conLeft] && plumb[self.conLeft].status) {
+                    if (self.conLeft == last_from && last_from !== undefined && plumb[self.conLeft] && plumb[self.conLeft].status) {
                         ev.color        = JSON.parse(JSON.stringify(plumb[self.conLeft].color));
                         ev.status       = JSON.parse(JSON.stringify(plumb[self.conLeft].status));
                         ev              = check_ev(ev);
                         self.color      = ev.color;
                         self.status     = ev.status;
-                        $("#" + self.conRight).trigger(ev);
+                        $('#' + self.conRight).trigger(ev);
                     } else if (plumb[self.conRight] && plumb[self.conRight].status) {
                         last_from   = self.conRight;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conRight].color));
@@ -1590,7 +1551,7 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $("#" + self.conLeft).trigger(ev);
+                        $('#' + self.conLeft).trigger(ev);
                     } else {
                         last_from   = self.conLeft;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].color  : {c_default: $this.data('color_on')}));
@@ -1598,7 +1559,7 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $("#" + self.conRight).trigger(ev);
+                        $('#' + self.conRight).trigger(ev);
                     }
                 } else {
                     $this.find('path').attr('fill', $this.data('color_off'));
@@ -1609,7 +1570,7 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = false;
-                        $("#" + self.conRight).trigger(ev);
+                        $('#' + self.conRight).trigger(ev);
                     }
 
                     if (self.conRight == last_from) {
@@ -1640,7 +1601,7 @@
             var plumb = vis.binds.plumb.data;
             var last_from;
             vis.binds.plumb.data[id] = {
-                type:       "pipe",
+                type:       'pipe',
                 cons:       ["conTop", "conBottom"],
                 coli:       false,
                 conLeft:    data.conLeft || null,
@@ -1658,12 +1619,12 @@
             var self = plumb[id];
 
             $($this).css({
-                height: parseInt(parseInt(data.pipe_size) * 1.5) + "px",
-                width:  parseInt(data.pipe_size) + "px"
+                height: parseInt(parseInt(data.pipe_size) * 1.5) + 'px',
+                width:  parseInt(data.pipe_size) + 'px'
             });
-            $("#widget_helper_" + id).css({
-                height: parseInt(parseInt(data.pipe_size) * 1.5) + 2 + "px",
-                width: parseInt(data.pipe_size) + 2 + "px"
+            $('#widget_helper_' + id).css({
+                height: parseInt(parseInt(data.pipe_size) * 1.5) + 2 + 'px',
+                width: parseInt(data.pipe_size) + 2 + 'px'
             });
 
             vis.binds.plumb.plumb_drop($this);
@@ -1708,7 +1669,7 @@
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
 
-                    if (self.conTop == last_from && last_from != undefined && plumb[self.conTop] && plumb[self.conTop].status) {
+                    if (self.conTop == last_from && last_from !== undefined && plumb[self.conTop] && plumb[self.conTop].status) {
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop].color));
                         ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop].status));
                         ev          = check_ev(ev);
@@ -1774,7 +1735,7 @@
             var last_true;
 
             vis.binds.plumb.data[id] = {
-                type: "pipe",
+                type: 'pipe',
                 cons: ["conLeft", "conRight"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1794,12 +1755,12 @@
             setTimeout(function () {
                 vis.binds.plumb.svg_check_valve_h(id);
                 $($this).css({
-                    height: parseInt(data.pipe_size) + "px",
-                    width: parseInt(parseInt(data.pipe_size) * 2.5) + "px"
+                    height: parseInt(data.pipe_size) + 'px',
+                    width: parseInt(parseInt(data.pipe_size) * 2.5) + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) + 2 + "px",
-                    width: parseInt(parseInt(data.pipe_size) * 2.5) + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) + 2 + 'px',
+                    width: parseInt(parseInt(data.pipe_size) * 2.5) + 2 + 'px'
                 });
 
                 if (data.turn_direction) {
@@ -1819,10 +1780,10 @@
 
             $this.bind('plumb_change', function (event) {
 
-                if (self.conLeft == event.from && data.turn_direction == false) {
-                    $("#" + id + "_fill_left").attr("fill", event.color.c);
-                    $("#" + id + "_fill_right").attr("fill", event.color.c);
-                    if (event.status == true ) {
+                if (self.conLeft == event.from && !data.turn_direction) {
+                    $('#' + id + "_fill_left").attr("fill", event.color.c);
+                    $('#' + id + "_fill_right").attr("fill", event.color.c);
+                    if (event.status) {
                         last_true = event;
                     } else {
                         last_true = undefined;
@@ -1830,34 +1791,32 @@
                     vis.binds.plumb.check(id, event);
                 } else if (self.conLeft == event.from) {
                     if (last_true) {
-                        $("#" + id + "_fill_left").attr("fill", last_true.color.c);
-                        $("#" + id + "_fill_right").attr("fill", last_true.color.c);
+                        $('#' + id + "_fill_left").attr("fill", last_true.color.c);
+                        $('#' + id + "_fill_right").attr("fill", last_true.color.c);
                         vis.binds.plumb.check(id, last_true);
                     } else {
-                        $("#" + id + "_fill_right").attr("fill", event.color.c);
+                        $('#' + id + "_fill_right").attr("fill", event.color.c);
                     }
                 }
 
-                if (self.conRight == event.from && data.turn_direction != false) {
-                    $("#" + id + "_fill_left").attr("fill", event.color.c);
-                    $("#" + id + "_fill_right").attr("fill", event.color.c);
-                    if(event.status == true ){
+                if (self.conRight == event.from && data.turn_direction) {
+                    $('#' + id + "_fill_left").attr("fill", event.color.c);
+                    $('#' + id + "_fill_right").attr("fill", event.color.c);
+                    if(event.status){
                         last_true = event;
                     }else{
                         last_true = undefined;
                     }
                     vis.binds.plumb.check(id, event)
                 } else if (self.conRight == event.from) {
-
                     if(last_true){
-                        $("#" + id + "_fill_left").attr("fill", last_true.color.c);
-                        $("#" + id + "_fill_right").attr("fill", last_true.color.c);
+                        $('#' + id + "_fill_left").attr("fill", last_true.color.c);
+                        $('#' + id + "_fill_right").attr("fill", last_true.color.c);
                         vis.binds.plumb.check(id, last_true)
                     }else{
-                        $("#" + id + "_fill_right").attr("fill", event.color.c);
+                        $('#' + id + "_fill_right").attr("fill", event.color.c);
                     }
                 }
-
             });
 
             function set(newVal) {
@@ -1866,9 +1825,9 @@
                     from:   id,
                     status: true
                 };
-
+                var self_color;
                 if (newVal >= 1) {
-                    var self_color = $this.data('color_on');
+                    self_color = $this.data('color_on');
                     $this.find(".plumb_valve_l").css({"border-color": "rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) " + self_color});
                     $this.find(".plumb_valve_r").css({"border-color": "rgba(0, 0, 0, 0) " + self_color + " rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)"});
 
@@ -1876,17 +1835,16 @@
                         ev.color = JSON.parse(JSON.stringify(plumb[self.conLeft].color));
                         self.color = ev.color;
 
-                        $("#" + data.conRight).trigger(ev);
+                        $('#' + data.conRight).trigger(ev);
                     }
 
                     if (plumb[self.conRight] && plumb[self.conRight].status) {
                         ev.color = JSON.parse(JSON.stringify(plumb[self.conRight].color));
                         self.color = ev.color;
-
-                        $("#" + data.conLeft).trigger(ev);
+                        $('#' + data.conLeft).trigger(ev);
                     }
                 } else {
-                    var self_color = $this.data('color_off');
+                    self_color = $this.data('color_off');
                     $this.find(".plumb_valve_l").css({"border-color": "rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) " + self_color});
                     $this.find(".plumb_valve_r").css({"border-color": "rgba(0, 0, 0, 0) " + self_color + " rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)"});
 
@@ -1895,8 +1853,7 @@
                         ev.color.c  = ev.color.c_default;
                         ev.status   = false;
                         self.color  = ev.color;
-
-                        $("#" + data.conLeft).trigger(ev);
+                        $('#' + data.conLeft).trigger(ev);
                     }
 
                     if (plumb[self.conRight] && plumb[self.conRight].status) {
@@ -1904,20 +1861,19 @@
                         ev.color.c  = ev.color.c_default;
                         ev.status   = false;
                         self.color  = ev.color;
-                        $("#" + data.conRight).trigger(ev);
+                        $('#' + data.conRight).trigger(ev);
                     }
                 }
             }
         },
         c_valve_v: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
+            var id = $this.attr('id');
             var plumb = vis.binds.plumb.data;
-            var self_color;
             var last_true;
 
             vis.binds.plumb.data[id] = {
-                type: "pipe",
+                type: 'pipe',
                 cons: ["conTop", "conBottom"],
                 coli: false,
                 conLeft: data.conLeft || null,
@@ -1940,12 +1896,12 @@
             setTimeout(function () {
                 vis.binds.plumb.svg_check_valve_v(id);
                 $($this).css({
-                    height: parseInt(parseInt(data.pipe_size) * 2.5) + "px",
-                    width:  parseInt(data.pipe_size) + "px"
+                    height: parseInt(parseInt(data.pipe_size) * 2.5) + 'px',
+                    width:  parseInt(data.pipe_size) + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(parseInt(data.pipe_size) * 2.5) + 2 + "px",
-                    width:  parseInt(data.pipe_size) + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(parseInt(data.pipe_size) * 2.5) + 2 + 'px',
+                    width:  parseInt(data.pipe_size) + 2 + 'px'
                 });
 
                 if (data.turn_direction) {
@@ -1963,10 +1919,10 @@
             vis.binds.plumb.plumb_drop($this);
 
             $this.bind('plumb_change', function (event) {
-                if (self.conTop == event.from && data.turn_direction != false) {
-                    $("#" + id + "_fill_top").attr("fill", event.color.c);
-                    $("#" + id + "_fill_bottom").attr("fill", event.color.c);
-                    if(event.status == true ){
+                if (self.conTop == event.from && data.turn_direction) {
+                    $('#' + id + "_fill_top").attr("fill", event.color.c);
+                    $('#' + id + "_fill_bottom").attr("fill", event.color.c);
+                    if (event.status){
                         last_true = event;
                     }else{
                         last_true = undefined;
@@ -1974,18 +1930,18 @@
                     vis.binds.plumb.check(id, event)
                 } else if (self.conTop == event.from) {
                     if (last_true) {
-                        $("#" + id + "_fill_top").attr("fill",last_true);
-                        $("#" + id + "_fill_bottom").attr("fill", last_true);
+                        $('#' + id + "_fill_top").attr("fill",last_true);
+                        $('#' + id + "_fill_bottom").attr("fill", last_true);
                         vis.binds.plumb.check(id, last_true)
                     } else {
-                        $("#" + id + "_fill_top").attr("fill", event.color.c);
+                        $('#' + id + "_fill_top").attr("fill", event.color.c);
                     }
                 }
 
-                if (self.conBottom == event.from && data.turn_direction == false) {
-                    $("#" + id + "_fill_top").attr("fill", event.color.c);
-                    $("#" + id + "_fill_bottom").attr("fill", event.color.c);
-                    if (event.status == true) {
+                if (self.conBottom == event.from && !data.turn_direction) {
+                    $('#' + id + "_fill_top").attr("fill", event.color.c);
+                    $('#' + id + "_fill_bottom").attr("fill", event.color.c);
+                    if (event.status) {
                         last_true = event;
                     } else {
                         last_true = undefined;
@@ -1994,40 +1950,40 @@
                     vis.binds.plumb.check(id, event);
                 } else if (self.conBottom == event.from) {
                     if (last_true) {
-                        $("#" + id + "_fill_top").attr("fill",last_true);
-                        $("#" + id + "_fill_bottom").attr("fill", last_true);
+                        $('#' + id + "_fill_top").attr("fill",last_true);
+                        $('#' + id + "_fill_bottom").attr("fill", last_true);
                         vis.binds.plumb.check(id, last_true)
                     } else {
-                        $("#" + id + "_fill_top").attr("fill", event.color.c);
+                        $('#' + id + "_fill_top").attr("fill", event.color.c);
                     }
                 }
             });
 
             function set(newVal) {
                 var ev = {
-                    type: "plumb_change",
-                    from: id,
+                    type:   'plumb_change',
+                    from:   id,
                     status: true
                 };
-
+                var self_color;
                 if (newVal >= 1) {
-                    var self_color = $this.data('color_on');
+                    self_color = $this.data('color_on');
                     $this.find(".plumb_valve_l").css({"border-color": "rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) " + self_color});
                     $this.find(".plumb_valve_r").css({"border-color": "rgba(0, 0, 0, 0) " + self_color + " rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)"});
 
                     if (plumb[self.conLeft] && plumb[self.conLeft].status) {
                         ev.color = JSON.parse(JSON.stringify(plumb[self.conLeft].color));
                         self.color = ev.color;
-                        $("#" + data.conRight).trigger(ev);
+                        $('#' + data.conRight).trigger(ev);
                     }
 
                     if (plumb[self.conRight] && plumb[self.conRight].status) {
                         ev.color = JSON.parse(JSON.stringify(plumb[self.conRight].color));
                         self.color = ev.color;
-                        $("#" + data.conLeft).trigger(ev);
+                        $('#' + data.conLeft).trigger(ev);
                     }
                 } else {
-                    var self_color = $this.data('color_off');
+                    self_color = $this.data('color_off');
                     $this.find(".plumb_valve_l").css({"border-color": "rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) " + self_color});
                     $this.find(".plumb_valve_r").css({"border-color": "rgba(0, 0, 0, 0) " + self_color + " rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)"});
 
@@ -2037,7 +1993,7 @@
                         ev.status   = false;
                         self.color  = ev.color;
 
-                        $("#" + data.conLeft).trigger(ev);
+                        $('#' + data.conLeft).trigger(ev);
                     }
 
                     if (plumb[self.conRight] && plumb[self.conRight].status) {
@@ -2045,15 +2001,14 @@
                         ev.color.c  = ev.color.c_default;
                         ev.status   = false;
                         self.color  = ev.color;
-                        $("#" + data.conRight).trigger(ev);
+                        $('#' + data.conRight).trigger(ev);
                     }
                 }
             }
         },
         tpice_hb: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
                 type: "tpice",
@@ -2069,19 +2024,17 @@
                     c_from: null,
                     c_default: null
                 }
-            }
-
-            var self = plumb[id];
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_tpiece(id);
                 $($this).css({
-                    height: parseInt(data.pipe_size) * 3 + "px",
-                    width: parseInt(data.pipe_size) * 3 + "px"
+                    height: parseInt(data.pipe_size) * 3 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) * 3 + 2 + "px",
-                    width: parseInt(data.pipe_size) * 3 + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) * 3 + 2 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -2105,8 +2058,7 @@
         },
         tpice_ht: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
                 type:       "tpice",
@@ -2124,17 +2076,15 @@
                 }
             };
 
-            var self = plumb[id];
-
             setTimeout(function () {
                 vis.binds.plumb.svg_tpiece(id);
                 $($this).css({
-                    height: parseInt(data.pipe_size) * 3 + "px",
-                    width: parseInt(data.pipe_size) * 3 + "px"
+                    height: parseInt(data.pipe_size) * 3 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) * 3 + 2 + "px",
-                    width: parseInt(data.pipe_size) * 3 + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) * 3 + 2 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -2151,15 +2101,14 @@
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(newVal) ? $this.data('color_on') : $this.data('color_off'));
                 });
             } else {
-                $this.bind("plumb_change", function (event) {
+                $this.bind('plumb_change', function (event) {
                     vis.binds.plumb.check(id, event)
                 });
             }
         },
         tpice_vl: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
                 type: "tpice",
@@ -2175,19 +2124,17 @@
                     c_from: null,
                     c_default: null
                 }
-            }
-
-            var self = plumb[id];
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_tpiece(id);
                 $($this).css({
-                    height: parseInt(data.pipe_size) * 3 + "px",
-                    width: parseInt(data.pipe_size) * 3 + "px"
+                    height: parseInt(data.pipe_size) * 3 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) * 3 + 2 + "px",
-                    width: parseInt(data.pipe_size) * 3 + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) * 3 + 2 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -2211,8 +2158,7 @@
         },
         tpice_vr: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
-            var plumb = vis.binds.plumb.data;
+            var id = $this.attr('id');
 
             vis.binds.plumb.data[id] = {
                 type: "tpice",
@@ -2228,19 +2174,17 @@
                     c_from: null,
                     c_default: null
                 }
-            }
-
-            var self = plumb[id];
+            };
 
             setTimeout(function () {
                 vis.binds.plumb.svg_tpiece(id);
                 $($this).css({
-                    height: parseInt(data.pipe_size) * 3 + "px",
-                    width: parseInt(data.pipe_size) * 3 + "px"
+                    height: parseInt(data.pipe_size) * 3 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 'px'
                 });
-                $("#widget_helper_" + id).css({
-                    height: parseInt(data.pipe_size) * 3 + 2 + "px",
-                    width: parseInt(data.pipe_size) * 3 + 2 + "px"
+                $('#widget_helper_' + id).css({
+                    height: parseInt(data.pipe_size) * 3 + 2 + 'px',
+                    width: parseInt(data.pipe_size) * 3 + 2 + 'px'
                 });
                 if (data.oid) {
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(vis.states[data.oid + '.val']) ? $this.data('color_on') : $this.data('color_off'));
@@ -2257,14 +2201,14 @@
                     $('#' + id + '_fill').attr('fill', !vis.binds.basic.isFalse(newVal) ? $this.data('color_on') : $this.data('color_off'));
                 });
             } else {
-                $this.bind("plumb_change", function (event) {
+                $this.bind('plumb_change', function (event) {
                     vis.binds.plumb.check(id, event)
                 });
             }
         },
         ent_e_top: function (el, data) {
             var $this = $(el).parent();
-            var id = $this.attr("id");
+            var id = $this.attr('id');
             var plumb = vis.binds.plumb.data;
 
             vis.binds.plumb.data[id] = {
@@ -2281,7 +2225,7 @@
                     c_from: null,
                     c_default: null
                 }
-            }
+            };
 
             var self = plumb[id];
 
@@ -2333,20 +2277,20 @@
             <path class="' + id + '_spray" style="stroke-dasharray:10,7,3; stroke:url(#spray_grad_' + id + ');stroke-width:3;stroke-linecap:none;stroke-opacity:1" d="M 250,120 200,5 M 240,120 200,5 M 230,120 200,5 M 220,120 200,5 M 210,120 200,5 M 200,120 200,5 M 190,120 200,5 M 180,120 200,5 M 170,120 200,5 M 160,120 200,5 M 150,120 200,10"></path>\
             </svg>\
             ');
-            $this.bind("plumb_change", function (event) {
+            $this.bind('plumb_change', function (event) {
                 if (self.conTop == event.from) {
-                    if (event.status == true) {
+                    if (event.status) {
                         $("." + id + "_spray").show()
                     } else {
                         $("." + id + "_spray").hide()
                     }
                 }
                 if (self.conRight == event.from) {
-                    if (event.status == true) {
+                    if (event.status) {
                         $('#fill_grad_top' + id).css("stop-opacity", "1");
 
                         var ev = {
-                            type: "plumb_change",
+                            type: 'plumb_change',
                             from: id,
                             status: true,
                             color: {
@@ -2355,10 +2299,10 @@
                                 c: data.water_color
                             }
                         };
-                        $("#" + self.conBottom).trigger(ev);
+                        $('#' + self.conBottom).trigger(ev);
                     } else {
                         var ev = {
-                            type: "plumb_change",
+                            type: 'plumb_change',
                             from: id,
                             status: false,
                             color: {
@@ -2367,15 +2311,15 @@
                                 c: event.color.c_default
                             }
                         };
-                        $("#" + self.conBottom).trigger(ev);
-                        $('#fill_grad_top' + id).css("stop-opacity", "0")
+                        $('#' + self.conBottom).trigger(ev);
+                        $('#fill_grad_top' + id).css("stop-opacity", '0')
                     }
                 }
                 if (self.conBottom == event.from) {
-                    if (event.status == true) {
-                        $('#fill_grad_top' + id).css("stop-opacity", "1");
+                    if (event.status) {
+                        $('#fill_grad_top' + id).css("stop-opacity", '1');
                         var ev = {
-                            type: "plumb_change",
+                            type: 'plumb_change',
                             from: id,
                             status: true,
                             color: {
@@ -2385,10 +2329,10 @@
                             }
 
                         };
-                        $("#" + self.conRight).trigger(ev);
+                        $('#' + self.conRight).trigger(ev);
                     } else {
                         var ev = {
-                            type: "plumb_change",
+                            type: 'plumb_change',
                             from: id,
                             status: false,
                             color: {
@@ -2398,16 +2342,16 @@
                             }
 
                         };
-                        $("#" + self.conRight).trigger(ev);
+                        $('#' + self.conRight).trigger(ev);
                         $('#fill_grad_top' + id).css("stop-opacity", "0")
                     }
                 }
             });
         },
         tank_simple: function (el, data) {
-            if (data.conRight_pos != undefined) {
+            if (data.conRight_pos !== undefined) {
                 var $this = $(el).parent();
-                var id = $this.attr("id");
+                var id = $this.attr('id');
                 var plumb = vis.binds.plumb.data;
                 var last_event;
                 vis.binds.plumb.data[id] = {
@@ -2431,48 +2375,48 @@
                 vis.binds.plumb.plumb_drop($this);
 
                 $this.find(".tank_simple_svg").append('\
-<svg\
-            height="100%"\
-            viewBox="0 0 300 600"\
-            width="100%"\
-            preserveAspectRatio="none"\
-             >\
-            <defs>\
-            <clipPath id="e_' + id + '" clipPathUnits="userSpaceOnUse">\
-            <path d="m146.46.013672a150 50 0 0 0 -71.46 6.6855 150 50 0 0 0 -75 43.301v499.8.20h.013672a150 50.2 0 0 0 74.986 43.28 150 50.2 0 0 0 150 0 150 50.2 0 0 0 74.97 -43.28h.03v-.20-499.8a150 50 0 0 0 -75 -43.301 150 50 0 0 0 -78.54 -6.6853z" fill="' + data.color + '"/>\
-            </clipPath>\
-            <linearGradient id="d_' + id + '" gradientUnits="userSpaceOnUse" y1="300" x2="300" y2="300">\
-            <stop stop-color="#000000" stop-opacity=".5" offset="0"/>\
-            <stop stop-color="#000000" stop-opacity="0" offset=".5"/>\
-            <stop stop-color="#000000" stop-opacity=".5" offset="1"/>\
-            </linearGradient>\
-            <linearGradient id="a_' + id + '">\
-            <stop stop-color="#000000" stop-opacity="0" offset="0"/>\
-            <stop stop-color="#000000" stop-opacity=".5" offset="1"/>\
-            </linearGradient>\
-            <radialGradient id="c_' + id + '" xlink:href="#a_' + id + '" gradientUnits="userSpaceOnUse" cy="172.7" cx="153.34" gradientTransform="matrix(.98033 .00033848 -.00012370 .35826 3.079 -12.306)" r="150"/>\
-            <radialGradient id="b_' + id + '" xlink:href="#a_' + id + '" gradientUnits="userSpaceOnUse" cy="427.04" cx="150" gradientTransform="matrix(-1 0 0 -.37168 300 709.06)" r="150"/>\
-            <linearGradient x1="150" y1="300" x2="150" y2="600" id="fill_grad_' + id + '" gradientUnits="userSpaceOnUse">\
-            <stop id="fill_grad_top' + id + '"    offset="0" style="stop-color:' + data.top_water + ';stop-opacity:1" />\
-            <stop id="fill_grad_bottom' + id + '" offset="1" style="stop-color:' + data.bottom_water + ';stop-opacity:1"  />\
-            </linearGradient>\
-            <pattern id="kies_' + id + '" x="0" y="0" height="' + data.filter_size + '" width="' + data.filter_size + '" patternUnits="userSpaceOnUse">\
-                    <image height="' + data.filter_size + '" width="' + data.filter_size + '"  xlink:href="' + data.filter_pattern + '"></image>\
-            </pattern>\
-            </defs>\
-            <path d="m146.46.013672a150 50 0 0 0 -71.46 6.6855 150 50 0 0 0 -75 43.301v499.8.20h.013672a150 50.2 0 0 0 74.986 43.28 150 50.2 0 0 0 150 0 150 50.2 0 0 0 74.97 -43.28h.03v-.20-499.8a150 50 0 0 0 -75 -43.301 150 50 0 0 0 -78.54 -6.6853z" fill="' + data.color + '"/>\
-            <rect id="' + data.wid + '_fill" style="color:#000000" clip-path="url(#e_' + id + ')" height="300" width="300" y="300" x="0" fill="url(#fill_grad_' + id + ')"/>\
-            <rect id="' + id + '_kies" clip-path="url(#e_' + id + ')" height="450" width="300" y="150" x="0" style="display: none; opacity:' + data.filter_opa / 100 + '" fill="url(#kies_' + id + ')"/>\
-            <path d="m0 50h300v500h-300z" fill="url(#d_' + id + ')"/>\
-            <path fill="url(#b_' + id + ')" d="m300 550a150 50 0 0 1 -75 43 150 50 0 0 1 -150 0 150 50 0 0 1 -75 -43h150z"/>\
-            <path fill="url(#c_' + id + ')" d="m0  50a150 50 0 0 1 75 -43 150 50 0 0 1 150 -0 150 50 0 0 1 75 43h-0z"/>\
-            </svg>\
-            ');
+                    <svg\
+                    height="100%"\
+                    viewBox="0 0 300 600"\
+                    width="100%"\
+                    preserveAspectRatio="none"\
+                     >\
+                    <defs>\
+                    <clipPath id="e_' + id + '" clipPathUnits="userSpaceOnUse">\
+                    <path d="m146.46.013672a150 50 0 0 0 -71.46 6.6855 150 50 0 0 0 -75 43.301v499.8.20h.013672a150 50.2 0 0 0 74.986 43.28 150 50.2 0 0 0 150 0 150 50.2 0 0 0 74.97 -43.28h.03v-.20-499.8a150 50 0 0 0 -75 -43.301 150 50 0 0 0 -78.54 -6.6853z" fill="' + data.color + '"/>\
+                    </clipPath>\
+                    <linearGradient id="d_' + id + '" gradientUnits="userSpaceOnUse" y1="300" x2="300" y2="300">\
+                    <stop stop-color="#000000" stop-opacity=".5" offset="0"/>\
+                    <stop stop-color="#000000" stop-opacity="0" offset=".5"/>\
+                    <stop stop-color="#000000" stop-opacity=".5" offset="1"/>\
+                    </linearGradient>\
+                    <linearGradient id="a_' + id + '">\
+                    <stop stop-color="#000000" stop-opacity="0" offset="0"/>\
+                    <stop stop-color="#000000" stop-opacity=".5" offset="1"/>\
+                    </linearGradient>\
+                    <radialGradient id="c_' + id + '" xlink:href="#a_' + id + '" gradientUnits="userSpaceOnUse" cy="172.7" cx="153.34" gradientTransform="matrix(.98033 .00033848 -.00012370 .35826 3.079 -12.306)" r="150"/>\
+                    <radialGradient id="b_' + id + '" xlink:href="#a_' + id + '" gradientUnits="userSpaceOnUse" cy="427.04" cx="150" gradientTransform="matrix(-1 0 0 -.37168 300 709.06)" r="150"/>\
+                    <linearGradient x1="150" y1="300" x2="150" y2="600" id="fill_grad_' + id + '" gradientUnits="userSpaceOnUse">\
+                    <stop id="fill_grad_top' + id + '"    offset="0" style="stop-color:' + data.top_water + ';stop-opacity:1" />\
+                    <stop id="fill_grad_bottom' + id + '" offset="1" style="stop-color:' + data.bottom_water + ';stop-opacity:1"  />\
+                    </linearGradient>\
+                    <pattern id="kies_' + id + '" x="0" y="0" height="' + data.filter_size + '" width="' + data.filter_size + '" patternUnits="userSpaceOnUse">\
+                            <image height="' + data.filter_size + '" width="' + data.filter_size + '"  xlink:href="' + data.filter_pattern + '"></image>\
+                    </pattern>\
+                    </defs>\
+                    <path d="m146.46.013672a150 50 0 0 0 -71.46 6.6855 150 50 0 0 0 -75 43.301v499.8.20h.013672a150 50.2 0 0 0 74.986 43.28 150 50.2 0 0 0 150 0 150 50.2 0 0 0 74.97 -43.28h.03v-.20-499.8a150 50 0 0 0 -75 -43.301 150 50 0 0 0 -78.54 -6.6853z" fill="' + data.color + '"/>\
+                    <rect id="' + data.wid + '_fill" style="color:#000000" clip-path="url(#e_' + id + ')" height="300" width="300" y="300" x="0" fill="url(#fill_grad_' + id + ')"/>\
+                    <rect id="' + id + '_kies" clip-path="url(#e_' + id + ')" height="450" width="300" y="150" x="0" style="display: none; opacity:' + data.filter_opa / 100 + '" fill="url(#kies_' + id + ')"/>\
+                    <path d="m0 50h300v500h-300z" fill="url(#d_' + id + ')"/>\
+                    <path fill="url(#b_' + id + ')" d="m300 550a150 50 0 0 1 -75 43 150 50 0 0 1 -150 0 150 50 0 0 1 -75 -43h150z"/>\
+                    <path fill="url(#c_' + id + ')" d="m0  50a150 50 0 0 1 75 -43 150 50 0 0 1 150 -0 150 50 0 0 1 75 43h-0z"/>\
+                    </svg>\
+                ');
 
 
                 setTimeout(function () {
-                    if (data.is_filter == true) {
-                        $("#" + id + "_kies").show()
+                    if (data.is_filter) {
+                        $('#' + id + "_kies").show();
                     }
 
                     $this.find(".plumb_dock_right, .plumb_dock_left, .plumb_dock_top, .plumb_dock_bottom").remove();
@@ -2485,7 +2429,7 @@
                     var s;
                     var shadow;
 
-                    if (data.conTop_show == true) {
+                    if (data.conTop_show) {
                         self.cons.push("conTop");
 
                         $this.find(".tank_simple").append('<div id="' + id + '_dock_top_svg" class="plumb-dock-svg plumb_dock_top"></div>');
@@ -2496,22 +2440,22 @@
                         l = (($this.width() - s) / 100 * (data.conTop_pos || 50));
 
                         $this.find(".plumb_dock_top").css({
-                            top: t + "px",
-                            left: l + "px",
+                            top: t + 'px',
+                            left: l + 'px',
                             height: "50px",
-                            width: s + "px",
+                            width: s + 'px',
                             overflow: "hidden"
                         }).find("svg").css({
                             position: 'absolute',
                             width: '100%',
-                            height: '100%',
+                            height: '100%'
                         });
 
-                        $("#" + id + "_dock_top_fill").attr("fill", data.color_off);
+                        $('#' + id + "_dock_top_fill").attr("fill", data.color_off);
                         $this.addClass("pl_t")
                     }
 
-                    if (data.conBottom_show == true) {
+                    if (data.conBottom_show) {
                         self.cons.push("conBottom");
                         $this.find(".tank_simple").append('<div id="' + id + '_dock_bottom_svg" class="plumb-dock-svg plumb_dock_bottom"></div>');
                         vis.binds.plumb.svg_pipe_v(id + "_dock_bottom");
@@ -2520,20 +2464,20 @@
                         l = (($this.width() - s) / 100 * (data.conBottom_pos || 50));
 
                         $this.find(".plumb_dock_bottom").css({
-                            bottom: t + "px",
-                            left: l + "px",
+                            bottom: t + 'px',
+                            left: l + 'px',
                             height: "50px",
-                            width: s + "px",
+                            width: s + 'px',
                             overflow: "hidden"
                         }).find("svg").css({
                             position: 'absolute',
                             width: '100%',
-                            height: '100%',
+                            height: '100%'
                         });
-                        $("#" + id + "_dock_bottom_fill").attr("fill", data.color_off);
+                        $('#' + id + "_dock_bottom_fill").attr("fill", data.color_off);
                         $this.addClass("pl_b")
                     }
-                    if (data.conLeft_show == true) {
+                    if (data.conLeft_show) {
                         self.cons.push("conLeft");
                         $this.find(".tank_simple").append('<div id="' + id + '_dock_left_svg" class="plumb-dock-svg plumb_dock_left"></div>');
                         vis.binds.plumb.svg_pipe_h(id + "_dock_left");
@@ -2542,20 +2486,20 @@
                         t = (($this.height() - s) / 100 * (data.conLeft_pos || 50));
 
                         $this.find(".plumb_dock_left").css({
-                            top: t + "px",
-                            left: l + "px",
-                            height: s + "px",
+                            top: t + 'px',
+                            left: l + 'px',
+                            height: s + 'px',
                             width: "20px",
                             overflow: "hidden"
                         }).find("svg").css({
                             position: 'absolute',
                             width: '100%',
-                            height: '100%',
+                            height: '100%'
                         });
-                        $("#" + id + "_dock_left_fill").attr("fill", data.color_off);
+                        $('#' + id + "_dock_left_fill").attr("fill", data.color_off);
                         $this.addClass("pl_l")
                     }
-                    if (data.conRight_show == true) {
+                    if (data.conRight_show) {
                         self.cons.push("conRight");
                         $this.find(".tank_simple").append('<div id="' + id + '_dock_right_svg" class="plumb-dock-svg plumb_dock_right"></div>');
                         vis.binds.plumb.svg_pipe_h(id + "_dock_right");
@@ -2564,69 +2508,65 @@
                         t = (($this.height() - s) / 100 * (data.conRight_pos || 50));
 
                         $this.find(".plumb_dock_right").css({
-                            top: t + "px",
-                            right: l + "px",
-                            height: s + "px",
+                            top: t + 'px',
+                            right: l + 'px',
+                            height: s + 'px',
                             width: "20px",
                             overflow: "hidden"
                         }).find("svg").css({
                             position: 'absolute',
                             width: '100%',
-                            height: '100%',
+                            height: '100%'
                         });
-                        $("#" + id + "_dock_right_fill").attr("fill", data.color_off);
-                        $this.addClass("pl_r")
+                        $('#' + id + "_dock_right_fill").attr("fill", data.color_off);
+                        $this.addClass('pl_r')
                     }
                     vis.binds.plumb.plumb_drop($this);
 
-                    if (data.oid != "") {
-                        set(vis.states[data.oid + '.val'])
+                    if (data.oid) {
+                        set(vis.states[data.oid + '.val']);
                     }
                     vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
-
-                        set(newVal)
-
+                        set(newVal);
                     });
                 }, 0);
 
-
-                $this.bind("plumb_change", function (event) {
-
-                    if (event.status == true) {
-                        last_event == event.from;
+                $this.bind('plumb_change', function (event) {
+                    if (event.status) {
+                        last_event = event.from;
                     }
-
                 });
             }
+
             function set(_newVal) {
                 var newVal = _newVal || 0;
                 var step = 600 / 100;
                 var val;
                 var level;
-                if (data.type == "level") {
+                if (data.type === 'level') {
                     step = 600 / (data.level_max - data.level_min );
                     val = (newVal - data.level_min) * step;
                     if (val < 0) {
                         val = 0
                     }
                     level = parseInt(100 / 600 * val);
-                    $("#" + data.wid + "_fill").attr("height", val).attr("y", 600 - val);
-                    $('#fill_grad_' + id).attr("y1", 600 - val);
+                    $('#' + data.wid + "_fill").attr('height', val).attr('y', 600 - val);
+                    $('#fill_grad_' + id).attr('y1', 600 - val);
                 } else if (data.type === 'bool') {
                     step = 600 / 100;
 
-                    if (newVal == true) {
+                    if (newVal) {
                         val = data.level_max * step;
                     } else {
                         val = data.level_min * step;
                     }
 
                     level = parseInt(100 / 600 * val);
-                    $("#" + data.wid + "_fill").attr("height", val).attr("y", 600 - val);
+                    $('#' + data.wid + "_fill").attr('height', val).attr("y", 600 - val);
                     $('#fill_grad_' + id).attr("y1", 600 - val);
                 } else if (data.type === 'fix') {
                     level = parseInt(100 / 600 * (data.level_min * step));
-                    $("#" + data.wid + "_fill").attr("height", data.level_min * step).attr("y", 600 - data.level_min * step);
+                    $('#' + data.wid + "_fill").attr('height', data.level_min * step).attr("y", 600 - data.level_min * step);
                     $('#fill_grad_' + id).attr("y1", 600 - data.level_min * step);
                 }
 
@@ -2651,8 +2591,8 @@
                         ev.color.c = data.conRight_color_off;
                         ev.color.c_default = data.conRight_color_off;
                     }
-                    $("#" + id + "_dock_right_fill").attr("fill", ev.color.c);
-                    $("#" + self.conRight).trigger(ev);
+                    $('#' + id + "_dock_right_fill").attr("fill", ev.color.c);
+                    $('#' + self.conRight).trigger(ev);
 
                 }
                 if (self.conLeft != last_event) {
@@ -2664,8 +2604,8 @@
                         ev.color.c = data.conLeft_color_off;
                         ev.color.c_default = data.conLeft_color_off;
                     }
-                    $("#" + id + "_dock_left_fill").attr("fill", ev.color.c);
-                    $("#" + self.conLeft).trigger(ev);
+                    $('#' + id + "_dock_left_fill").attr("fill", ev.color.c);
+                    $('#' + self.conLeft).trigger(ev);
                 }
                 if (self.conTop != last_event) {
                     if (level >= parseInt(data.conTop_level)) {
@@ -2676,8 +2616,8 @@
                         ev.color.c = data.conTop_color_off;
                         ev.color.c_default = data.conTop_color_off;
                     }
-                    $("#" + id + "_dock_top_fill").attr("fill", ev.color.c);
-                    $("#" + self.conTop).trigger(ev);
+                    $('#' + id + "_dock_top_fill").attr("fill", ev.color.c);
+                    $('#' + self.conTop).trigger(ev);
                 }
                 if (self.conBottom != last_event) {
                     if (level >= parseInt(data.conBottom_level)) {
@@ -2688,30 +2628,28 @@
                         ev.color.c = data.conBottom_color_off;
                         ev.color.c_default = data.conBottom_color_off;
                     }
-                    $("#" + id + "_dock_bottom_fill").attr("fill", ev.color.c);
-                    $("#" + self.conBottom).trigger(ev);
+                    $('#' + id + "_dock_bottom_fill").attr("fill", ev.color.c);
+                    $('#' + self.conBottom).trigger(ev);
                 }
 //
 //                if (self.conRight == last_event) {
-//                    $("#" + id + "_dock_right_fill").attr("fill", event.color.c);
+//                    $('#' + id + "_dock_right_fill").attr("fill", event.color.c);
 //                } else if (self.conLeft == last_event) {
-//                    $("#" + id + "_dock_left_fill").attr("fill", event.color.c);
+//                    $('#' + id + "_dock_left_fill").attr("fill", event.color.c);
 //                } else if (self.conTop == last_event) {
-//                    $("#" + id + "_dock_top_fill").attr("fill", event.color.c);
+//                    $('#' + id + "_dock_top_fill").attr("fill", event.color.c);
 //                } else if (self.conBottom == last_event) {
-//                    $("#" + id + "_dock_bottom_fill").attr("fill", event.color.c);
+//                    $('#' + id + "_dock_bottom_fill").attr("fill", event.color.c);
 //                }
             }
 
             setTimeout(function () {
-                $($this.parent()).on("rendered", function () {
-                    if (data.oid != "") {
-                        set(vis.states[data.oid + '.val'])
+                $($this.parent()).on('rendered', function () {
+                    if (data.oid) {
+                        set(vis.states[data.oid + '.val']);
                     }
-                })
+                });
             }, 0);
-
-
         }
     };
 

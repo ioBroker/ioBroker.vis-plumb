@@ -2,10 +2,18 @@
 ioBroker.vis-plumb
 ============
 
+[![NPM version](http://img.shields.io/npm/v/iobroker.vis-plimb.svg)](https://www.npmjs.com/package/iobroker.vis-plimb)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-plimb.svg)](https://www.npmjs.com/package/iobroker.vis-plimb)
+
+[![NPM](https://nodei.co/npm/iobroker.vis-plimb.png?downloads=true)](https://nodei.co/npm/iobroker.vis-plimb/)
+
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
-### 0.1.8 (2018-07-13)
+### 0.1.9 (2017-05-24)
+- (bluefox) detect cyclic updates
+
+### 0.1.8 (2016-07-13)
 - (bluefox) add image selector by pump
 
 ### 0.1.7 (2015-11-28)
