@@ -7,7 +7,7 @@
                 "en": "detect cyclic updates",
                 "de": "detectiere zyklische updates",
                 "ru": "обнаружение циклических конструкций"
-            }
+            },
             "0.1.8": {
                 "en": "add image selector by pump",
                 "de": "add image selector by pump",
