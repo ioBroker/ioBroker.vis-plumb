@@ -338,7 +338,7 @@
 
             self.status = event.status;
             self.color  = event.color;
-            
+
             if (list.indexOf(id) === -1) {
                 list.push(id);
                 event.list = list;
@@ -392,7 +392,10 @@
             $.each(self.cons, function () {
                 if (self[this] !== event.from) {
                     e.from = id;
-                    $('#' + self[this]).trigger(e);
+                    var conArr = self[this].split(',');
+                    conArr.forEach(function(value) {
+                        $('#' + value).trigger(e);
+                    });
                 }
             });
         },
@@ -402,7 +405,10 @@
             $.each(self.cons, function () {
                 if (self[this] === event.from) {
                     e.from = id;
-                    $('#' + self[this]).trigger(e);
+                    var conArr = self[this].split(',');
+                    conArr.forEach(function(value) {
+                        $('#' + value).trigger(e);
+                    });
                 }
             });
         },
@@ -733,7 +739,10 @@
                     $('#' + id + "_dock_bottom_fill").attr("fill", ev.color.c);
                     $('#' + id + "_dock_left_fill").attr("fill", ev.color.c);
                     $('#' + id + "_dock_right_fill").attr("fill", ev.color.c);
-                    $('#' + self[this]).trigger(ev);
+                    var conArr = self[this].split(',');
+                    conArr.forEach(function(value) {
+                        $('#' + value).trigger(ev);
+                    });
                 });
             });
 
@@ -760,7 +769,10 @@
                         $('#' + id + "_dock_bottom_fill").attr("fill", ev.color.c);
                         $('#' + id + "_dock_left_fill").attr("fill", ev.color.c);
                         $('#' + id + "_dock_right_fill").attr("fill", ev.color.c);
-                        $('#' + self[this]).trigger(ev);
+                        var conArr = self[this].split(',');
+                        conArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     });
                 })
             });
@@ -1537,13 +1549,17 @@
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
 
+                    var conLeftArr = self.conLeft.split(',');
+                    var conRightArr = self.conRight.split(',');
                     if (self.conLeft == last_from && last_from !== undefined && plumb[self.conLeft] && plumb[self.conLeft].status) {
                         ev.color        = JSON.parse(JSON.stringify(plumb[self.conLeft].color));
                         ev.status       = JSON.parse(JSON.stringify(plumb[self.conLeft].status));
                         ev              = check_ev(ev);
                         self.color      = ev.color;
                         self.status     = ev.status;
-                        $('#' + self.conRight).trigger(ev);
+                        conRightArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     } else if (plumb[self.conRight] && plumb[self.conRight].status) {
                         last_from   = self.conRight;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conRight].color));
@@ -1551,7 +1567,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $('#' + self.conLeft).trigger(ev);
+                        conRightArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     } else {
                         last_from   = self.conLeft;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].color  : {c_default: $this.data('color_on')}));
@@ -1559,7 +1577,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $('#' + self.conRight).trigger(ev);
+                        conRightArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
                 } else {
                     $this.find('path').attr('fill', $this.data('color_off'));
@@ -1570,7 +1590,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = false;
-                        $('#' + self.conRight).trigger(ev);
+                        conRightArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
 
                     if (self.conRight == last_from) {
@@ -1580,7 +1602,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = false;
-                        $('#' + self.conLeft).trigger(ev);
+                        conLeftArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
                 }
             }
@@ -1669,13 +1693,17 @@
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
 
+                    var conBottomArr = self.conBottom.split(',');
+                    var conTopArr = self.conTop.split(',');
                     if (self.conTop == last_from && last_from !== undefined && plumb[self.conTop] && plumb[self.conTop].status) {
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop].color));
                         ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop].status));
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $('#' + self.conBottom).trigger(ev);
+                        conBottomArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     } else if (plumb[self.conBottom] && plumb[self.conBottom].status) {
                         last_from   = self.conBottom;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conBottom].color));
@@ -1683,7 +1711,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $('#' + self.conTop).trigger(ev);
+                        conTopArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     } else {
                         last_from   = self.conTop;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop] ? plumb[self.conTop].color : {c_default: $this.data('color_on')}));
@@ -1691,7 +1721,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
-                        $('#' + self.conBottom).trigger(ev);
+                        conBottomArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
                 } else {
                     $this.find('path').attr('fill', $this.data('color_off'));
@@ -1703,7 +1735,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = false;
-                        $('#' + self.conBottom).trigger(ev);
+                        conBottomArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
 
                     if (self.conBottom == last_from) {
@@ -1713,7 +1747,9 @@
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = false;
-                        $('#' + self.conTop).trigger(ev);
+                        conTopArr.forEach(function(value) {
+                            $('#' + value).trigger(ev);
+                        });
                     }
                 }
             }
@@ -3085,4 +3121,3 @@
 <!--</div>-->
 <!--</div>-->
 <!--</script>-->
-
