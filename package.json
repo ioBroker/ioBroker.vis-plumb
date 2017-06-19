@@ -1,13 +1,14 @@
 {
   "name": "iobroker.vis-plumb",
   "description": "plumb Widgets for ioBroker.vis",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "author": {
     "name": "smiling_Jack",
     "email": "smiling_Jack@ioBroker.net"
   },
   "contributors": [
-    "smiling_Jack <smiling_Jack@ioBroker.net>"
+    "smiling_Jack <smiling_Jack@ioBroker.net>",
+    "ingo@fischer-ka.de"
   ],
   "homepage": "https://github.com/ioBroker/ioBroker.vis-plumb",
   "repository": {

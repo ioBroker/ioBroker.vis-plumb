@@ -1,9 +1,14 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.1.9",
+        "version": "0.2.0",
 		"news": {
-			"0.1.9": {
+            "0.2.0": {
+                "en": "allow to use multiple widgets conected for pump and valve_h/_v",
+                "de": "Erlaube mehrere verbundene Widgets für Pumpe und Valve_h/_v",
+                "ru": "allow to use multiple widgets conected for pump and valve_h/_v"
+            },
+            "0.1.9": {
                 "en": "detect cyclic updates",
                 "de": "detectiere zyklische updates",
                 "ru": "обнаружение циклических конструкций"
