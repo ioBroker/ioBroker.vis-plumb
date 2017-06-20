@@ -1554,11 +1554,12 @@
                     return x
                 }
 
+                if (newVal === true) newVal = 1;
+                    else if (newVal === false) newVal = 0;
+                var conLeftArr = self.conLeft.split(',');
+                var conRightArr = self.conRight.split(',');
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
-
-                    var conLeftArr = self.conLeft.split(',');
-                    var conRightArr = self.conRight.split(',');
                     if (self.conLeft == last_from && last_from !== undefined && plumb[self.conLeft] && plumb[self.conLeft].status) {
                         ev.color        = JSON.parse(JSON.stringify(plumb[self.conLeft].color));
                         ev.status       = JSON.parse(JSON.stringify(plumb[self.conLeft].status));
@@ -1698,11 +1699,13 @@
                     return x
                 }
 
+                if (newVal === true) newVal = 1;
+                    else if (newVal === false) newVal = 0;
+                var conBottomArr = self.conBottom.split(',');
+                var conTopArr = self.conTop.split(',');
                 if (newVal >= 1) {
                     $this.find('path').attr('fill', $this.data('color_on'));
 
-                    var conBottomArr = self.conBottom.split(',');
-                    var conTopArr = self.conTop.split(',');
                     if (self.conTop == last_from && last_from !== undefined && plumb[self.conTop] && plumb[self.conTop].status) {
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop].color));
                         ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop].status));
