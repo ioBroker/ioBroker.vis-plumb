@@ -1574,7 +1574,7 @@
                     } else if (plumb[self.conRight] && plumb[self.conRight].status) {
                         last_from   = self.conRight;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conRight].color));
-                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conLeft].status));
+                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conRight].status));
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
@@ -1582,9 +1582,16 @@
                             $('#' + value).trigger(ev);
                         });
                     } else {
-                        last_from   = self.conLeft;
-                        ev.color    = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].color  : {c_default: $this.data('color_on')}));
-                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].status : false));
+                        if (conLeftArr.length <= 1) {
+                            last_from   = self.conLeft;
+                            ev.color    = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].color : {c_default: $this.data('color_on')}));
+                            ev.status   = JSON.parse(JSON.stringify(plumb[self.conLeft] ? plumb[self.conLeft].status : false));
+                        }
+                        else if (conRightArr.length <= 1) {
+                            last_from   = self.conRight;
+                            ev.color    = JSON.parse(JSON.stringify(plumb[self.conRight] ? plumb[self.conRight].color : {c_default: $this.data('color_on')}));
+                            ev.status   = JSON.parse(JSON.stringify(plumb[self.conRight] ? plumb[self.conRight].status : false));
+                        }
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
@@ -1720,7 +1727,7 @@
                     } else if (plumb[self.conBottom] && plumb[self.conBottom].status) {
                         last_from   = self.conBottom;
                         ev.color    = JSON.parse(JSON.stringify(plumb[self.conBottom].color));
-                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop].status));
+                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conBottom].status));
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
@@ -1728,9 +1735,16 @@
                             $('#' + value).trigger(ev);
                         });
                     } else {
-                        last_from   = self.conTop;
-                        ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop] ? plumb[self.conTop].color : {c_default: $this.data('color_on')}));
-                        ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop] ? plumb[self.conTop].status : false));
+                        if (conTopArr.length <= 1) {
+                            last_from   = self.conTop;
+                            ev.color    = JSON.parse(JSON.stringify(plumb[self.conTop] ? plumb[self.conTop].color : {c_default: $this.data('color_on')}));
+                            ev.status   = JSON.parse(JSON.stringify(plumb[self.conTop] ? plumb[self.conTop].status : false));
+                        }
+                        else if (conBottomArr.length <= 1) {
+                            last_from   = self.conBottom;
+                            ev.color    = JSON.parse(JSON.stringify(plumb[self.conBottom] ? plumb[self.conBottom].color : {c_default: $this.data('color_on')}));
+                            ev.status   = JSON.parse(JSON.stringify(plumb[self.conBottom] ? plumb[self.conBottom].status : false));
+                        }
                         ev          = check_ev(ev);
                         self.color  = ev.color;
                         self.status = ev.status;
