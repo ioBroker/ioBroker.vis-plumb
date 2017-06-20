@@ -766,10 +766,12 @@
                     };
                     if (vis.states[data.oid + '.val'] >= 1) {
                         ev.color.c = data.color_on;
-                        ev.status = true
+                        ev.status = true;
+                        self.status = true;
                     } else {
                         ev.color.c = data.color_off;
-                        ev.status = false
+                        ev.status = false;
+                        self.status = true;
                     }
                     self.color = ev.color;
                     $.each(self.cons, function () {
