@@ -1107,10 +1107,10 @@
                     height="100%"\
                     viewBox="0 0 500 500"\
                     >\
-                <clipPath id="starfoo">\
+                <clipPath id="starfoo_' + id + '">\
                     <path d="' + p + '"/>\
                     </clipPath>\
-                         <g transform="translate(0,0)" clip-path="url(#starfoo)">\
+                         <g transform="translate(0,0)" clip-path="url(#starfoo_' + id + ')">\
                             <g style="stroke:' + data.water_color + ';stroke-width:' + stroke + ';stroke-linecap:round;stroke-opacity:' + data.opacity + '" >\
                                 <path d="M 250,500 250,0"/>\
                                 <path d="M 293,496 207,3.8"/>\
@@ -1130,7 +1130,7 @@
                                 <path d="M 375,33.3 125,467"/>\
                                 <path d="M 335,14.9 165,485"/>\
                                 <path d="M 293,3.71 207,496"/>\
-                                <animateTransform id="t_two" attributeName="transform" type="rotate" from="0 250 250" to=" 360 250 250" begin="0s" dur="' + time + '" repeatCount="indefinite"   />\
+                                <animateTransform id="t_two_' + id + '" attributeName="transform" type="rotate" from="0 250 250" to=" 360 250 250" begin="0s" dur="' + time + '" repeatCount="indefinite"   />\
                             </g>\
                         </g>\
                     </svg>\
