@@ -10,6 +10,9 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
+### 1.0.0 (2017-10-13)
+- (bluefox) fix sprinkler angle
+
 ### 0.2.0 (2017-06-19)
 - (Apollon77) allow to use multiple widgets conected for pump and valve_h/v, so you do not need to use all the pipes and can enter comma-separated list of sprinklers directly at valves or at the pump
 

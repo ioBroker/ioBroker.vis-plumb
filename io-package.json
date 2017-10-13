@@ -1,8 +1,13 @@
 {
     "common": {
         "name":                     "vis-plumb",
-        "version": "0.2.0",
+        "version": "1.0.0",
 		"news": {
+            "1.0.0": {
+                "en": "fix sprinkler angle",
+                "de": "Korrigiere Sprinkler Winkel",
+                "ru": "Исправлен угол поливки"
+            },
             "0.2.0": {
                 "en": "allow to use multiple widgets conected for pump and valve_h/_v",
                 "de": "Erlaube mehrere verbundene Widgets für Pumpe und Valve_h/_v",

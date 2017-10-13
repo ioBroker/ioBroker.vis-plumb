@@ -1,7 +1,7 @@
 {
   "name": "iobroker.vis-plumb",
   "description": "plumb Widgets for ioBroker.vis",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": {
     "name": "smiling_Jack",
     "email": "smiling_Jack@ioBroker.net"

@@ -1,9 +1,9 @@
 <!--
     ioBroker.vis plumb widgets
 
-    version: "0.1.9"
+    version: "1.0.0"
 
-    Copyright 2015-2016 smiling_Jack <smiling_Jack@ioBroker.net>
+    Copyright 2015-2017 smiling_Jack <smiling_Jack@ioBroker.net>
 
 -->
 <link rel="stylesheet" type="text/css" href="widgets/plumb/css/plumb.css"/>
@@ -101,7 +101,7 @@
     }
 
     vis.binds.plumb = {
-		version: "0.1.9",
+		version: "1.0.0",
 		showVersion: function () {
             if (vis.binds.plumb.version) {
                 console.log('Version vis-plumb: ' + vis.binds.plumb.version);
@@ -2731,7 +2731,6 @@
         class="vis-tpl"
         data-vis-prev='<div id="prev_tplPlump_pump" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl_b pl_t ui-selectee ui-draggable-handle " data-vis-resizable="{}" style="top: 163px; left: 449px; width: 57px; height: 183px;" > <div class="vis-widget-prev-body">	<div class="pump" ><img style="position: absolute; width: 100%;" src="./widgets/plumb/img/pumpe.png"><div class="plumb_dock_top ui-droppable"></div><div class="plumb_dock_bottom ui-droppable"></div>	<div class="plumb_dock_left ui-droppable"></div>	<div class="plumb_dock_right ui-droppable"></div>	</div> </div> </div></div>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Pump"
         data-vis-attrs="oid;src[widgets/plumb/img/pumpe.png]/image;color_off[#C0C0C0]/color;color_on[#00ff00]/color;group.conTop;conTop_show/checkbox;conTop_size[20]/slider,10,50,5;conTop_pos[50]/slider,0,100,1;conTop;group.conBottom;conBottom_show/checkbox;conBottom_size[20]/slider,10,50,5;conBottom_pos[50]/slider,0,100,1;conBottom;group.conLeft;conLeft_show/checkbox;conLeft_size[20]/slider,10,50,5;conLeft_pos[50]/slider,0,100,1;conLeft;group.conRight;conRight_show/checkbox;conRight_size[20]/slider,10,50,5;conRight_pos[50]/slider,0,100,1;conRight">
@@ -2756,7 +2755,6 @@
         class="vis-tpl"
         data-vis-prev='<div id="prev_tplPlump_istrinkler" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl pl_b pl_t pl_l pl_r ui-draggable-handle " data-vis-resizable="{"grid": [ 10, 10 ]}" style="width: 20px; height: 17px; overflow: visible; left: 242px; top: 228px; position: absolute;" > <div class="plumb_sprinkler_i_body vis-widget-prev-body" style="border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; background-color: rgb(0, 0, 0);"> <div class="plumb_sprinkler_i" > <div class="plumb_splinkler_i_water" style="height: 60px; width: 5px; left: 7px; top: -51px; position: relative; background-color: rgb(27, 138, 222);"></div> </div> <div class="plumb_dock_top ui-droppable"></div> <div class="plumb_dock_bottom ui-droppable"></div> <div class="plumb_dock_left ui-droppable"></div> <div class="plumb_dock_right ui-droppable"></div> </div> </div></div>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Sprinker I"
         data-vis-attrs="_no_resize[true]/hidden;test/checkbox;spray_width[100]/slider,10,500,1;head_size[20]/slider,10,50,5;time[4];start[0];ende[90];stroke[4];opacity[0.8];fog/checkbox;water_color[blue]/color;head_color[black]/color;head_show[true]/checkbox;head_round[true]/checkbox">
@@ -2779,7 +2777,6 @@
         class="vis-tpl"
         data-vis-prev='<div id="prev_tplPlump_istrinkler" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl pl_b pl_t pl_l pl_r ui-draggable-handle " data-vis-resizable="{"grid": [ 10, 10 ]}" style="width: 20px; height: 17px; overflow: visible; left: 242px; top: 228px; position: absolute;" > <div class="plumb_sprinkler_i_body vis-widget-prev-body" style="border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; background-color: rgb(0, 0, 0);"> <div class="plumb_sprinkler_i" > <div class="plumb_splinkler_i_water" style="height: 60px; width: 5px; left: 7px; top: -51px; position: relative; background-color: rgb(27, 138, 222);"></div> </div> <div class="plumb_dock_top ui-droppable"></div> <div class="plumb_dock_bottom ui-droppable"></div> <div class="plumb_dock_left ui-droppable"></div> <div class="plumb_dock_right ui-droppable"></div> </div> </div></div>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Sprinker R"
         data-vis-attrs="_no_resize[true]/hidden;spray_width[100]/slider,10,500,1;"
@@ -2802,7 +2799,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_pipe_v.png" ></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_V"
         data-vis-attrs="pipe_size[20]/slider,10,50,5;conTop;conBottom;"
@@ -2823,7 +2819,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_pipe_h.png" class=""></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_H"
         data-vis-attrs="pipe_size[20]/slider,10,50,5;conLeft;conRight;"
@@ -2844,7 +2839,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_bogen.png" class=""></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Bogen_br"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conBottom;conRight;"
@@ -2865,7 +2859,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_bogen.png" class="plumb-flip-x"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Bogen_bl"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conBottom;conLeft;"
@@ -2886,7 +2879,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_bogen.png" class="plumb-flip-y"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Bogen_tr"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conTop;conRight;"
@@ -2907,7 +2899,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_bogen.png" class="plumb-rotate180"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Bogen_tl"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conTop;conLeft;"
@@ -2928,7 +2919,6 @@
         class="vis-tpl"
         data-vis-prev='<div id="prev_tplPlump_valve_H" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl_l pl_r ui-selectee ui-draggable-handle " data-vis-resizable="{"grid": [ 20, 10 ],"aspectRatio": true}" style="top: 245px; left: 240px; width: 40px; height: 20px;" > <div class="vis-widget-prev-body">   <div class="valve_h" >    <div class="plumb_valve_l" style="border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(255, 0, 0); border-width: 10px 0px 10px 20px;"></div>    <div class="plumb_valve_r" style="border-color: rgba(0, 0, 0, 0) rgb(255, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0); border-width: 10px 20px 10px 0px;"></div>    <div class="plumb_dock_left ui-droppable"></div>    <div class="plumb_dock_right ui-droppable"></div>   </div> </div> </div></div>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="valve_H"
         data-vis-attrs="_no_resize[true]/hidden;oid;pipe_size[20]/slider,10,50,5;conLeft;conRight;ctrl/checkbox;color_on/color;color_off/color;">
@@ -2954,7 +2944,6 @@
         class="vis-tpl"
         data-vis-prev='<div id="prev_tplPlump_valve_v" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl_t pl_b ui-selectee ui-draggable-handle " data-vis-resizable="{"grid": [ 10, 20 ],"aspectRatio": true}" style="width: 20px; height: 35px; left: 121px; top: 469px; position: absolute;" > <div class="vis-widget-prev-body"> <div class="valve_v " > <div class="plumb_valve_t" style="border-color: rgb(255, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0); border-width: 20px 10px 0px;"></div> <div class="plumb_valve_b" style="border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(255, 0, 0); border-width: 0px 10px 20px;"></div> <div class="plumb_dock_top ui-droppable"></div> <div class="plumb_dock_bottom ui-droppable"></div> </div> </div> </div></div>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="valve_V"
         data-vis-attrs="_no_resize[true]/hidden;oid;pipe_size[20]/slider,10,50,5;conTop;conBottom;ctrl/checkbox;color_on/color;color_off/color;">
@@ -2980,7 +2969,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_c_valve_h.png"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Check Valve H"
         data-vis-attrs="_no_resize[true]/hidden;conLeft;conRight;pipe_size[20]/slider,10,50,5;turn_direction[false]/checkbox;color_on/color;color_off/color;">
@@ -3000,7 +2988,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_c_valve_v.png"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="val"
         data-vis-name="Check Valve V"
         data-vis-attrs="_no_resize[true]/hidden;conTop;conBottom;pipe_size[20]/slider,10,50,5;turn_direction[false]/checkbox;color_on/color;color_off/color;">
@@ -3020,7 +3007,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_tpice.png" ></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_HT"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conLeft;conRight;conTop;"
@@ -3043,9 +3029,7 @@
         type="text/ejs"
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_tpice.png" class="plumb-flip-y" ></img>'
-        data-vis-beta="true"
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_HB"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conLeft;conRight;conBottom;"
@@ -3067,7 +3051,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_tpice.png" class="plumb-rotate270" style="margin:15px"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_VL"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conLeft;conBottom;conTop;"
@@ -3090,7 +3073,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_tpice.png" class="plumb-rotate90" style="margin:15px"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Pipe_VR"
         data-vis-attrs="_no_resize[true]/hidden;pipe_size[20]/slider,10,50,5;conBottom;conRight;conTop;"
@@ -3112,7 +3094,6 @@
         class="vis-tpl"
         data-vis-prev='<img src="widgets/plumb/img/prev_tank_simple.png"></img>'
         data-vis-set="plumb"
-        data-vis-beta="true"
         data-vis-type="static"
         data-vis-name="Tank"
         data-vis-attrs="type[level]/nselect,fix,bool,level;level_min[0];level_max[100];oid;color[#C0C0C0]/color;top_water[#0000ff]/color;bottom_water[#00ffff]/color;"
@@ -3139,7 +3120,6 @@
 <!--class="vis-tpl"-->
 <!--data-vis-prev='<div id="prev_tplPlump_tank_ent_e" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev pl pl_l pl_r pl_t ui-draggable-handle " data-vis-resizable="{"grid": [ 30, 30 ],"aspectRatio": true}" style="width: 110px; height: 240px; left: 330px; top: 47px; position: absolute;" > <div class="vis-widget-prev-body"> <div class="tank_ent-e " > <div class="ent-e_top_pipe-l" style="box-shadow: rgb(0, 0, 0) 10px 0px 10px -10px inset, rgb(0, 0, 0) -10px 0px 10px -10px inset;"></div> <div class="ent-e_top_pipe-r" style="box-shadow: rgb(0, 0, 0) 10px 0px 10px -10px inset, rgb(0, 0, 0) -10px 0px 10px -10px inset;"></div> <div class="ent-e_top" style="box-shadow: rgb(0, 0, 0) 90px 0px 90px -90px inset, rgb(0, 0, 0) -90px 0px 90px -90px inset, rgb(0, 0, 0) 0px 45px 45px -45px inset;"></div> <div class="ent-e_center" style="box-shadow: rgb(0, 0, 0) 90px 0px 90px -90px inset, rgb(0, 0, 0) -90px 0px 90px -90px inset;"> <div class="ent-e_schott"></div> <div class="ent-e_kies"></div> </div> <div class="ent-e_bottom" style="box-shadow: rgb(0, 0, 0) 90px 0px 90px -90px inset, rgb(0, 0, 0) -90px 0px 90px -90px inset;"></div> <div class="ent-e_bottom_pipe"></div> <div class="plumb_dock_top ui-droppable"></div> <div class="plumb_dock_left ui-droppable"></div> <div class="plumb_dock_right ui-droppable"></div> </div> </div> </div></div>'-->
 <!--data-vis-set="plumb"-->
-<!--data-vis-beta="true"-->
 <!--data-vis-type="static"-->
 <!--data-vis-name="Tank Enteisung"-->
 <!--data-vis-attrs="color[#C0C0C0]/color;water_color[#0000ff]/color;conTop,cnBottom;conLeft;conRight;filter_pattern[widgets/plumb/img/kies.png]/image;filter_size[15];filter_opa[50]/slider,0,100,1">-->
