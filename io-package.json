@@ -1,8 +1,8 @@
 {
     "common": {
-        "name":                     "vis-plumb",
+        "name": "vis-plumb",
         "version": "1.0.0",
-		"news": {
+        "news": {
             "1.0.0": {
                 "en": "fix sprinkler angle",
                 "de": "Korrigiere Sprinkler Winkel",
@@ -24,34 +24,42 @@
                 "ru": "add image selector by pump"
             }
         },
-        "title":                    "ioBroker Visualisation - plumb style Widgets",
+        "title": "ioBroker Visualisation - plumb style Widgets",
         "desc": {
-            "en":                   "plumb Widgets for ioBroker.vis",
-            "de":                   "plumb Widgets für ioBroker.vis",
-            "ru":                   "plumb Widgets для ioBroker.vis"
+            "en": "plumb Widgets for ioBroker.vis",
+            "de": "plumb Widgets für ioBroker.vis",
+            "ru": "plumb Widgets для ioBroker.vis"
         },
-        "platform":                 "Javascript/Node.js",
-        "loglevel":                 "info",
-        "icon":                     "plumb.png",
-        "enabled":                  true,
-        "mode":                     "once",
-        "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.vis-plumb/master/admin/plumb.png",
-        "keywords":                 ["plumb", "vis", "GUI", "graphical", "scada"],
-        "readme":                   "https://github.com/ioBroker/ioBroker.vis-plumb/blob/master/README.md",
+        "platform": "Javascript/Node.js",
+        "loglevel": "info",
+        "icon": "plumb.png",
+        "enabled": true,
+        "mode": "once",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.vis-plumb/master/admin/plumb.png",
+        "keywords": [
+            "plumb",
+            "vis",
+            "GUI",
+            "graphical",
+            "scada"
+        ],
+        "readme": "https://github.com/ioBroker/ioBroker.vis-plumb/blob/master/README.md",
         "authors": [
             "smiling_Jack <smiling_Jack@ioBroker.net>"
         ],
-        "localLink":                "%web_protocol%://%ip%:%web_port%/vis/edit.html",
-        "license":                  "MIT",
-        "dependencies":             ["vis"],
-        "onlyWWW":                  true,
-        "singleton":                true,
-		"noConfig":                 true,
-        "type":                     "vis",
-		"restartAdapters":          ["vis"]
+        "localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+        "license": "MIT",
+        "dependencies": [
+            "vis"
+        ],
+        "onlyWWW": true,
+        "singleton": true,
+        "noConfig": true,
+        "type": "visualization-widgets",
+        "restartAdapters": [
+            "vis"
+        ]
     },
-    "native": {
-    },
-    "instanceObjects": [
-    ]
+    "native": {},
+    "instanceObjects": []
 }
