@@ -2,10 +2,10 @@
 ioBroker.vis-plumb
 ============
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-plimb.svg)](https://www.npmjs.com/package/iobroker.vis-plimb)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-plimb.svg)](https://www.npmjs.com/package/iobroker.vis-plimb)
+[![NPM version](http://img.shields.io/npm/v/iobroker.vis-plumb.svg)](https://www.npmjs.com/package/iobroker.vis-plumb)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-plumb.svg)](https://www.npmjs.com/package/iobroker.vis-plumb)
 
-[![NPM](https://nodei.co/npm/iobroker.vis-plimb.png?downloads=true)](https://nodei.co/npm/iobroker.vis-plimb/)
+[![NPM](https://nodei.co/npm/iobroker.vis-plumb.png?downloads=true)](https://nodei.co/npm/iobroker.vis-plumb/)
 
 Plumb widget sets for ioBroker.vis
 
