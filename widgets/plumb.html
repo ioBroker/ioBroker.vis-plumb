@@ -1,7 +1,7 @@
 <!--
     ioBroker.vis plumb widgets
 
-    version: "1.0.0"
+    version: "1.0.1"
 
     Copyright 2015-2017 smiling_Jack <smiling_Jack@ioBroker.net>
 
@@ -375,7 +375,7 @@
             e.status = true;
 
             $.each(self.cons, function () {
-                if (self[this] !== event.from && self[this]) {
+                if (self[this] && self[this] !== event.from) {
                     e.color = plumb[self[this]].color;
                     self.color = e.color;
                 }
@@ -390,7 +390,7 @@
             var self = vis.binds.plumb.data[id];
             var e = JSON.parse(JSON.stringify(event));
             $.each(self.cons, function () {
-                if (self[this] !== event.from) {
+                if (self[this] && self[this] !== event.from) {
                     e.from = id;
                     var conArr = self[this].split(',');
                     conArr.forEach(function(value) {
@@ -403,7 +403,7 @@
             var self = vis.binds.plumb.data[id];
             var e = JSON.parse(JSON.stringify(event));
             $.each(self.cons, function () {
-                if (self[this] === event.from) {
+                if (self[this] && self[this] === event.from) {
                     e.from = id;
                     var conArr = self[this].split(',');
                     conArr.forEach(function(value) {

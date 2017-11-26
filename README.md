@@ -10,6 +10,9 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
+### 1.0.1 (2017-11-26)
+- (bluefox) fix sporadic error
+
 ### 1.0.0 (2017-10-13)
 - (bluefox) fix sprinkler angle
 
