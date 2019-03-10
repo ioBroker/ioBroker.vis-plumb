@@ -2,7 +2,7 @@
 ioBroker.vis-plumb
 ============
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-plumb.svg)](https://www.npmjs.com/package/iobroker.vis-plumb)
+![Number of Installations](http://iobroker.live/badges/vis-plumb-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-plumb-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-plumb.svg)](https://www.npmjs.com/package/iobroker.vis-plumb)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-plumb.svg)](https://www.npmjs.com/package/iobroker.vis-plumb)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-plumb.png?downloads=true)](https://nodei.co/npm/iobroker.vis-plumb/)
