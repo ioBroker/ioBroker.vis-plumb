@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "vis-plumb",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
-            "1.0.2": {
+            "1.0.3": {
                 "en": "fix error",
                 "de": "Korrigiere Fehler",
                 "ru": "Исправлен ошибка"

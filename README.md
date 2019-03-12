@@ -10,8 +10,8 @@ ioBroker.vis-plumb
 Plumb widget sets for ioBroker.vis
 
 ## Changelog
-### 1.0.2 (2019-03-10)
-- (bluefox) fix naming error
+### 1.0.3 (2019-03-13)
+- (Apollon77) fix naming error
 
 ### 1.0.1 (2017-11-26)
 - (bluefox) fix sporadic error
