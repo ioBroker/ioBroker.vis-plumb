@@ -42,6 +42,7 @@
         },
         "platform": "Javascript/Node.js",
         "loglevel": "info",
+        "tier": 3,
         "icon": "plumb.png",
         "enabled": true,
         "mode": "once",
